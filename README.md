@@ -1,6 +1,19 @@
 # PCL Paraphernalia
 **PCL Paraphernalia** is a free utility which provides a small collection of tools of use to technicians supporting printing on **PCL5** (hereafter referred to as **PCL**) and **PCL6** (hereafter referred to as **PCL XL**) printers.
 
+# Author
+PCL Paraphernalia was originally written and released by Chris Hutchinson, well known 
+on [TEK-TIPS.COM](https://www.tek-tips.com)
+and [HP Support Community](https://h30434.www3.hp.com/t5/Meet-the-Experts/dansdaduk/ba-p/5451499) as **DansDadUK**. 
+
+In June 2018, Chris passed away after he lost his fight with cancer. There is no compareable tool like PCL Paraphernalia
+so I've created this GitHub project to make sure that his legacy will still be available to the community.
+
+# Source Code
+The source code of PCL Paraphernalia was released by Chris, but the original web site https://www.pclparaphernalie.eu was
+closed before I was able to download the source code. If anyone has the source code, please contact me and pass the
+code to me so I can make it available here.
+
 # Dependencies
 The application requires the **.NET 4.x runtime** package.
 
