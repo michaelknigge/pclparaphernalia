@@ -20,7 +20,7 @@ The application requires the **.NET 4.x runtime** package.
 # Release
 This repository contains the latest version 3.2.1.0, released 2018-04-21. The following files are available for download:
 
- - [PCLPara3210setup.zip](https://github.com/michaelknigge/pclparaphernalia/blob/master/PCLPara3210setup.zip) contains PCL Paraphernalia as an installable Click-Once application (complete with help files).
+ - [PCLPara3210setup.zip](https://github.com/michaelknigge/pclparaphernalia/blob/master/PCLPara3210setup.zip) contains PCL Paraphernalia as an installable [Click-Once](https://en.wikipedia.org/wiki/ClickOnce) application (complete with help files).
 
  - [PCLParaphernalia3210.zip](https://github.com/michaelknigge/pclparaphernalia/blob/master/PCLParaphernalia3210.zip) contains just the PCL Paraphernalia executable.
 
