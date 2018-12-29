@@ -1,4 +1,4 @@
-# PCL Parapherna
+# PCL Paraphernalia
 **PCL Paraphernalia** is a free utility which provides a small collection of tools of use to technicians supporting printing on **PCL5** (hereafter referred to as **PCL**) and **PCL6** (hereafter referred to as **PCL XL**) printers.
 
 # Dependencies
