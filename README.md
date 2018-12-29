@@ -10,7 +10,7 @@ In June 2018, [Chris passed away](https://h30434.www3.hp.com/t5/LaserJet-Printin
 so I've created this GitHub project to make sure that his legacy will still be available to the community.
 
 # Source Code
-The source code of PCL Paraphernalia was released by Chris, but the original web site https://www.pclparaphernalie.eu was
+The source code of PCL Paraphernalia was released by Chris, but the original web site http://www.pclparaphernalia.eu was
 closed before I was able to download the source code. If anyone has the source code, please contact me and pass the
 code to me so I can make it available here.
 
