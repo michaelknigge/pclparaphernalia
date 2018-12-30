@@ -6,7 +6,7 @@ PCL Paraphernalia was originally written and released by Chris Hutchinson, well 
 on [TEK-TIPS.COM](https://www.tek-tips.com)
 and [HP Support Community](https://h30434.www3.hp.com/t5/Meet-the-Experts/dansdaduk/ba-p/5451499) as **DansDadUK**. 
 
-In June 2018, [Chris passed away](https://h30434.www3.hp.com/t5/LaserJet-Printing/DansDadUK/m-p/6853128#M354567) after he lost his fight with cancer. There is no compareable tool like PCL Paraphernalia
+In June 2018, [Chris passed away](https://h30434.www3.hp.com/t5/LaserJet-Printing/DansDadUK/m-p/6853128#M354567) after he lost his fight with cancer. There is no comparable tool like PCL Paraphernalia
 so I've created this GitHub project to make sure that his legacy will still be available to the community.
 
 # Source Code
