@@ -10,7 +10,9 @@ build_script:
 
     7z e PCLParaphernaliaHelp3210.zip -y
 
-    iscc pclparaphernalia.iss
+    dir
+
+    "C:\Program Files (x86)\Inno Setup 5\iscc.exe" pclparaphernalia.iss
 
 artifacts:
 - path: setup.exe
