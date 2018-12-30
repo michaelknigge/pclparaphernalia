@@ -10,8 +10,6 @@ build_script:
 
     7z e PCLParaphernaliaHelp3210.zip -y
 
-    dir
-
     ren PCLParaphernalia3210.exe pclparaphernalia.exe
 
     ren pclparaphernalia_v_3_2_1_0.chw pclparaphernalia.chw
@@ -19,5 +17,5 @@ build_script:
     "C:\Program Files (x86)\Inno Setup 5\iscc.exe" pclparaphernalia.iss
 
 artifacts:
-- path: setup.exe
-  name: PCLParaphernalia-SETUP.exe
+- path: PCLParaphernalia-Setup.exe
+  name: PCLParaphernalia-Setup.exe

@@ -9,13 +9,15 @@ AppId={#MyAppUUID}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppSupportURL={#MyAppURL}
-DefaultDirName={pf}
+DefaultDirName={pf}\PCL PCLParaphernalia
 DefaultGroupName={#MyGroupName}
 OutputDir=.
 PrivilegesRequired=lowest
 UsePreviousLanguage=no
 Compression=lzma
 DisableWelcomePage=no
+OutputBaseFilename=PCLParaphernalia-Setup
+OutputDir=.
 
 [Tasks]
 Name: desktopicon; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"
