@@ -1,4 +1,4 @@
-# PCL Paraphernalia
+# PCL Paraphernalia [![Build status](https://ci.appveyor.com/api/projects/status/qa5bqc2ji857929t/branch/master?svg=true)](https://ci.appveyor.com/project/michaelknigge/pclparaphernalia)
 **PCL Paraphernalia** is a free utility which provides a small collection of tools of use to technicians supporting printing on **PCL5** (hereafter referred to as **PCL**) and **PCL6** (hereafter referred to as **PCL XL**) printers.
 
 # Author
