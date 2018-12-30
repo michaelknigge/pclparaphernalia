@@ -12,6 +12,10 @@ build_script:
 
     dir
 
+    ren PCLParaphernalia3210.exe pclparaphernalia.exe
+
+    ren pclparaphernalia_v_3_2_1_0.chw pclparaphernalia.chw
+
     "C:\Program Files (x86)\Inno Setup 5\iscc.exe" pclparaphernalia.iss
 
 artifacts:
