@@ -20,11 +20,15 @@ The application requires the **.NET 4.x runtime** package.
 # Release
 This repository contains the latest version 3.2.1.0, released 2018-04-21. The following files are available for download:
 
- - [PCLPara3210setup.zip](https://github.com/michaelknigge/pclparaphernalia/raw/master/PCLPara3210setup.zip) contains PCL Paraphernalia as an installable [Click-Once](https://en.wikipedia.org/wiki/ClickOnce) application (complete with help files).
+ - [PCLPara3210setup.zip](https://github.com/michaelknigge/pclparaphernalia/raw/master/PCLPara3210setup.zip) contains PCL Paraphernalia as an installable [Click-Once](https://en.wikipedia.org/wiki/ClickOnce) application (complete with help files). **Note that this setup will no longer work because the Click-Once installer tries to download PCL Paraphernalia from http://www.pclparaphernalia.eu, which is no longer available.**
 
  - [PCLParaphernalia3210.zip](https://github.com/michaelknigge/pclparaphernalia/raw/master/PCLParaphernalia3210.zip) contains just the PCL Paraphernalia executable.
 
  - [PCLParaphernaliaHelp3210.zip](https://github.com/michaelknigge/pclparaphernalia/raw/master/PCLParaphernaliaHelp3210.zip) contains the compiled help files.
+
+There is also a [new installer available](https://ci.appveyor.com/project/michaelknigge/pclparaphernalia/build/artifacts) that is automatically built everytime I push a change to
+this repository (thanks to the free CI service [AppVeyor](https://www.appveyor.com/). The installer is deleted automatically every six month by [AppVeyor](https://www.appveyor.com/) - so if the
+new installer is gone, drop me a line and I'll make it available again.
 
 # PCL Paraphernalia Tools
 Unless otherwise stated, the tools work with **PCL** and **PCL XL**.
