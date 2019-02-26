@@ -9,26 +9,21 @@ and [HP Support Community](https://h30434.www3.hp.com/t5/Meet-the-Experts/dansda
 In June 2018, [Chris passed away](https://h30434.www3.hp.com/t5/LaserJet-Printing/DansDadUK/m-p/6853128#M354567) after he lost his fight with cancer. There is no comparable tool like PCL Paraphernalia
 so I've created this GitHub project to make sure that his legacy will still be available to the community.
 
-# Source Code
-The source code of PCL Paraphernalia was released by Chris, but the original web site http://www.pclparaphernalia.eu was
-closed before I was able to download the source code. If anyone has the source code, please contact me and pass the
-code to me so I can make it available here.
-
 # Dependencies
 The application requires the [.NET 4.x runtime](https://www.microsoft.com/en-us/download/details.aspx?id=17718) package. You need to install it separately if you are using Windows 7 or older.
 
-# Release
-This repository contains the latest version 3.2.1.0, released 2018-04-21. The following files are available for download:
+# Release (vegacy version originally released by Chris)
+The **legacy branch** of this repository contains the latest version 3.2.1.0, released 2018-04-21. The following files are available for download:
 
- - [PCLPara3210setup.zip](https://github.com/michaelknigge/pclparaphernalia/raw/master/PCLPara3210setup.zip) contains PCL Paraphernalia as an installable [Click-Once](https://en.wikipedia.org/wiki/ClickOnce) application (complete with help files). 
+ - [PCLPara3210setup.zip](https://github.com/michaelknigge/pclparaphernalia/raw/legacy/PCLPara3210setup.zip) contains PCL Paraphernalia as an installable [Click-Once](https://en.wikipedia.org/wiki/ClickOnce) application (complete with help files). 
  **Note that this setup will no longer work because the Click-Once installer tries to download PCL Paraphernalia from http://www.pclparaphernalia.eu, which is no longer available.**
 
- - [PCLParaphernalia3210.zip](https://github.com/michaelknigge/pclparaphernalia/raw/master/PCLParaphernalia3210.zip) contains just the PCL Paraphernalia executable.
+ - [PCLParaphernalia3210.zip](https://github.com/michaelknigge/pclparaphernalia/raw/legacy/PCLParaphernalia3210.zip) contains just the PCL Paraphernalia executable.
 
- - [PCLParaphernaliaHelp3210.zip](https://github.com/michaelknigge/pclparaphernalia/raw/master/PCLParaphernaliaHelp3210.zip) contains the compiled help files.
+ - [PCLParaphernaliaHelp3210.zip](https://github.com/michaelknigge/pclparaphernalia/raw/legacy/PCLParaphernaliaHelp3210.zip) contains the compiled help files.
 
 There is also a [new installer available](https://ci.appveyor.com/project/michaelknigge/pclparaphernalia/build/artifacts) that is automatically built everytime I push a change to
-this repository (thanks to the free CI service [AppVeyor](https://www.appveyor.com/)). The installer is available at [BinTray](https://bintray.com/michaelknigge/PCL-Paraphernalia/PCL-Paraphernalia-Setup).
+this repository (thanks to the free CI service [AppVeyor](https://www.appveyor.com/)). The installer is also available at [BinTray](https://bintray.com/michaelknigge/PCL-Paraphernalia/PCL-Paraphernalia-Setup).
 
 # PCL Paraphernalia Tools
 Unless otherwise stated, the tools work with **PCL** and **PCL XL**.
