@@ -1,4 +1,4 @@
-#define MyAppVersion     GetFileVersion("PCLParaphernalia.exe")
+#define MyAppVersion     GetFileVersion("PCLParaphernalia\bin\Release\PCLParaphernalia.exe")
 #define MyAppName        "PCL Paraphernalia"
 #define MyAppURL         "https://github.com/michaelknigge/pclparaphernalia"
 #define MyAppUUID        "213E31F3-4806-4A88-9745-C70D5BC5E2C9"
@@ -26,6 +26,8 @@ Name: "{group}\PCL Paraphernalia";      Filename: "{app}\pclparaphernalia.exe"; 
 Name: "{group}\Uninstall";              Filename: "{uninstallexe}"
 
 [Files]
-Source: "pclparaphernalia.exe"; DestDir: "{app}"; Flags: replacesameversion restartreplace uninsrestartdelete recursesubdirs
-Source: "pclparaphernalia.chw"; DestDir: "{app}"; Flags: replacesameversion restartreplace uninsrestartdelete recursesubdirs
-Source: "pclparaphernalia.chm"; DestDir: "{app}"; Flags: replacesameversion restartreplace uninsrestartdelete recursesubdirs
+Source: "PCLParaphernalia\bin\Release\PCLParaphernalia.application";  DestDir: "{app}"; Flags: replacesameversion restartreplace uninsrestartdelete recursesubdirs
+Source: "PCLParaphernalia\bin\Release\PCLParaphernalia.chm";          DestDir: "{app}"; Flags: replacesameversion restartreplace uninsrestartdelete recursesubdirs
+Source: "PCLParaphernalia\bin\Release\PCLParaphernalia.exe";          DestDir: "{app}"; Flags: replacesameversion restartreplace uninsrestartdelete recursesubdirs
+Source: "PCLParaphernalia\bin\Release\PCLParaphernalia.exe.config";   DestDir: "{app}"; Flags: replacesameversion restartreplace uninsrestartdelete recursesubdirs
+Source: "PCLParaphernalia\bin\Release\PCLParaphernalia.exe.manifest"; DestDir: "{app}"; Flags: replacesameversion restartreplace uninsrestartdelete recursesubdirs
