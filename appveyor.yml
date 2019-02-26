@@ -1,0 +1,14 @@
+version: 4.2.0.{build}
+branches:
+  only:
+  - enhanced
+image: Visual Studio 2017
+init:
+- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+build_script:
+- cmd: >-
+    "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.com" PCLParaphernalia.sln /rebuild "Release"
+
+    "C:\Program Files (x86)\Inno Setup 5\iscc.exe" pclparaphernalia.iss
+artifacts:
+- path: '*.exe'
