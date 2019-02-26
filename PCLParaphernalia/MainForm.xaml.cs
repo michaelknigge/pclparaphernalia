@@ -589,17 +589,17 @@ namespace PCLParaphernalia
             if (deploymentVersion == assemblyVersion)
                 crntVersion = "Version " + deploymentVersion;
             else
-                crntVersion = "Deployment Version\t= " +
+                crntVersion = "Deployment Version: " +
                               deploymentVersion + "\r\n" +
-                              "Assembly Version\t= " +
+                              "Assembly Version: " +
                               assemblyVersion;
 
             MessageBox.Show("PCL Paraphernalia\r\n\r\n" +
                              crntVersion + "\r\n\r\n" +
-                             "To report errors, send details to:\r\n\r\n" +
-                             "support@pclparaphernalia.eu\r\n\r\n" +
-                             "Web site: " +
-                             "https://www.pclparaphernalia.eu",
+                             "To report errors, please open an issue on\r\n\r\n" +
+                             "https://github.com/michaelknigge/pclparaphernalia/issues\r\n\r\n" +
+                             "Source code is available at GitHub, see" +
+                             "https://github.com/michaelknigge/pclparaphernalia",
                              "Help About",
                               MessageBoxButton.OK,
                               MessageBoxImage.Information);
