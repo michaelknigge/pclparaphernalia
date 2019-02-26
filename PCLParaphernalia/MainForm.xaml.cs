@@ -596,9 +596,9 @@ namespace PCLParaphernalia
 
             MessageBox.Show("PCL Paraphernalia\r\n\r\n" +
                              crntVersion + "\r\n\r\n" +
-                             "To report errors, please open an issue on\r\n\r\n" +
+                             "To report errors, please open an issue on\r\n" +
                              "https://github.com/michaelknigge/pclparaphernalia/issues\r\n\r\n" +
-                             "Source code is available at GitHub, see" +
+                             "Source code is available on GitHub, see\r\n" +
                              "https://github.com/michaelknigge/pclparaphernalia",
                              "Help About",
                               MessageBoxButton.OK,
