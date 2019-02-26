@@ -1,0 +1,264 @@
+﻿<Window x:Class="PCLParaphernalia.ToolPrnAnalyse"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowPRNAnalyse"
+        Width="760"
+        Height="780">
+    <Grid>
+        <Label Name="lbTitle"
+               Width="200"
+               Height="35"
+               Margin="0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="PRN File Analysis utility:"
+               FontSize="18" />
+
+        <GroupBox Name="grpActions"
+                  Width="750"
+                  Height="232"
+                  Margin="0,35,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Actions:">
+            <Grid>
+                <Button Name="btnOpenFile"
+                        Width="150"
+                        Height="40"
+                        Margin="10,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="btnOpenFile_Click"
+                        Content="Open Print File ..."
+                        Style="{StaticResource PrimaryButton}" />
+                <Label Name="lbFileName"
+                       Width="75"
+                       Height="25"
+                       Margin="175,10,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="File name:" />
+                <Label Name="lbFileSize"
+                       Width="75"
+                       Height="25"
+                       Margin="175,40,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Size (bytes):" />
+                <TextBox Name="txtFileName"
+                         Width="450"
+                         Height="20"
+                         Margin="270,15,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         VerticalContentAlignment="Bottom"
+                         FontFamily="Lucida Console"
+                         FontSize="12"
+                         IsEnabled="True"
+                         IsManipulationEnabled="False"
+                         IsReadOnly="True" />
+                <TextBox Name="txtFileSize"
+                         Width="100"
+                         Height="20"
+                         Margin="270,45,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         VerticalContentAlignment="Bottom"
+                         FontFamily="Lucida Console"
+                         FontSize="12"
+                         IsEnabled="True"
+                         IsReadOnly="True" />
+
+                <Button Name="btnContent"
+                        Width="150"
+                        Height="40"
+                        Margin="240,80,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="btnContent_Click"
+                        Content="Show Contents"
+                        IsEnabled="True"
+                        Style="{StaticResource PrimaryButton}" />
+                <Button Name="btnAnalysis"
+                        Width="150"
+                        Height="40"
+                        Margin="400,80,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="btnAnalysis_Click"
+                        Content="Show Analysis"
+                        Style="{StaticResource PrimaryButton}" />
+                <Button Name="btnStatistics"
+                        Width="150"
+                        Height="40"
+                        Margin="560,80,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="btnStatistics_Click"
+                        Content="Show Analysis Statistics"
+                        IsEnabled="True"
+                        Style="{StaticResource PrimaryButton}" />
+                <Label Name="lbRptSizes"
+                       Width="75"
+                       Height="25"
+                       Margin="175,120,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Size (rows):" />
+                <TextBox Name="txtRptSizeContent"
+                         Width="80"
+                         Height="20"
+                         Margin="270,125,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         VerticalContentAlignment="Bottom"
+                         FontFamily="Lucida Console"
+                         FontSize="12"
+                         IsEnabled="True"
+                         IsReadOnly="True" />
+                <TextBox Name="txtRptSizeAnalysis"
+                         Width="80"
+                         Height="20"
+                         Margin="430,125,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         VerticalContentAlignment="Bottom"
+                         FontFamily="Lucida Console"
+                         FontSize="12"
+                         IsEnabled="True"
+                         IsReadOnly="True" />
+                <TextBox Name="txtRptSizeStatistics"
+                         Width="80"
+                         Height="20"
+                         Margin="590,125,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         VerticalContentAlignment="Bottom"
+                         FontFamily="Lucida Console"
+                         FontSize="12"
+                         IsEnabled="True"
+                         IsReadOnly="True" />
+
+                <Button Name="btnOptions"
+                        Width="150"
+                        Height="40"
+                        Margin="10,160,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="btnOptions_Click"
+                        Content="Set options ..."
+                        Style="{StaticResource PrimaryButton}" />
+                <Button Name="btnSaveReport"
+                        Width="250"
+                        Height="40"
+                        Margin="350,160,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="btnSaveReport_Click"
+                        Content="Save report ..."
+                        IsEnabled="True"
+                        Style="{StaticResource PrimaryButton}" />
+
+                <!--
+                    <StatusBar Height="25" HorizontalAlignment="Left" Margin="20,185,0,0" Name="statusBar" VerticalAlignment="Top" Width="700" FontSize="12">
+                    <StatusBarItem Content="XYZ" Padding="1" FontSize="12" />
+                    <StatusBarItem Content="0" Padding="1" FontSize="12" />
+                    <StatusBarItem Content="0" Padding="1" FontSize="12" />
+                    </StatusBar>
+                -->
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="grpResults"
+                  Width="750"
+                  Height="480"
+                  Margin="0,265,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Results:">
+
+            <Grid Name="Display" ShowGridLines="False">
+                <TabControl Name="tabCtrl"
+                            Margin="5,0,0,5"
+                            BorderThickness="0"
+                            Focusable="False"
+                            IsEnabled="True"
+                            TabStripPlacement="Right">
+
+                    <TabItem Name="tabAnalysis"
+                             Focusable="False"
+                             IsEnabled="True"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid Name="dgAnalysis"
+                                  Width="715"
+                                  Height="435"
+                                  Margin="5,5,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  AutoGenerateColumns="True"
+                                  AutoGeneratingColumn="dgAnalysis_AutoGeneratingColumn"
+                                  ColumnHeaderHeight="25"
+                                  FontFamily="Courier New"
+                                  FontSize="11"
+                                  GridLinesVisibility="None"
+                                  IsReadOnly="True"
+                                  ItemsSource="{Binding}"
+                                  LoadingRow="dgAnalysis_LoadingRow"
+                                  SelectionUnit="Cell" />
+                    </TabItem>
+
+                    <TabItem Name="tabContent"
+                             Focusable="False"
+                             IsEnabled="True"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid Name="dgContent"
+                                  Width="715"
+                                  Height="435"
+                                  Margin="5,5,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  AutoGenerateColumns="True"
+                                  AutoGeneratingColumn="dgContent_AutoGeneratingColumn"
+                                  ColumnHeaderHeight="25"
+                                  FontFamily="Courier New"
+                                  FontSize="11"
+                                  GridLinesVisibility="None"
+                                  IsReadOnly="True"
+                                  ItemsSource="{Binding}"
+                                  SelectionUnit="Cell" />
+                    </TabItem>
+
+                    <TabItem Name="tabStatistics"
+                             Focusable="False"
+                             IsEnabled="True"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid Name="dgStatistics"
+                                  Width="715"
+                                  Height="435"
+                                  Margin="5,5,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  AutoGenerateColumns="True"
+                                  AutoGeneratingColumn="dgStatistics_AutoGeneratingColumn"
+                                  ColumnHeaderHeight="25"
+                                  FontFamily="Courier New"
+                                  FontSize="11"
+                                  GridLinesVisibility="None"
+                                  IsReadOnly="True"
+                                  ItemsSource="{Binding}"
+                                  SelectionUnit="Cell" />
+                    </TabItem>
+
+                </TabControl>
+
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Window>

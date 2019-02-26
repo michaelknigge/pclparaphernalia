@@ -1,0 +1,2200 @@
+﻿<Window x:Class="PCLParaphernalia.ToolMiscSamples"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowMiscSamples"
+        Width="760"
+        Height="780">
+    <Grid>
+        <Label Name="lbTitle"
+               Width="200"
+               Height="35"
+               Margin="0,0,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="PCL Misc Samples utility:"
+               FontSize="18" />
+
+        <GroupBox Name="grpPrintBasics"
+                  Width="300"
+                  Height="175"
+                  Margin="0,35,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Print basics:">
+            <Grid>
+                <Label Name="lbPDL"
+                       Width="120"
+                       Height="25"
+                       Margin="15,15,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Printer language:" />
+                <Label Name="lbPaperType"
+                       Width="120"
+                       Height="25"
+                       Margin="15,45,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Paper type:" />
+                <Label Name="lbPaperSize"
+                       Width="120"
+                       Height="25"
+                       Margin="15,75,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Paper size:" />
+                <Label Name="lbOrientation"
+                       Width="120"
+                       Height="25"
+                       Margin="15,105,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Orientation:" />
+
+                <ComboBox Name="cbPDL"
+                          Width="125"
+                          Height="23"
+                          Margin="140,20,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          SelectionChanged="cbPDL_SelectionChanged" />
+                <ComboBox Name="cbPaperType"
+                          Width="125"
+                          Height="23"
+                          Margin="140,50,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          SelectionChanged="cbPaperType_SelectionChanged" />
+                <ComboBox Name="cbPaperSize"
+                          Width="125"
+                          Height="23"
+                          Margin="140,80,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          SelectionChanged="cbPaperSize_SelectionChanged" />
+                <ComboBox Name="cbOrientation"
+                          Width="125"
+                          Height="23"
+                          Margin="140,110,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          SelectionChanged="cbOrientation_SelectionChanged" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="grpSampleOptions"
+                  Width="300"
+                  Height="110"
+                  Margin="450,35,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Sample basic options:">
+            <Grid>
+                <Label Name="lbSampleType"
+                       Width="120"
+                       Height="25"
+                       Margin="15,15,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Sample type:" />
+
+                <ComboBox Name="cbSampleType"
+                          Width="165"
+                          Height="23"
+                          Margin="100,20,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          SelectionChanged="cbSampleType_SelectionChanged" />
+
+                <CheckBox Name="chkOptFormAsMacro"
+                          Width="175"
+                          Margin="20,55,0,0"
+                          HorizontalAlignment="Left"
+                          Checked="chkOptFormAsMacro_Checked"
+                          Content="Render fixed text as overlay"
+                          Unchecked="chkOptFormAsMacro_Unchecked" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="grpSampleData"
+                  Width="750"
+                  Height="520"
+                  Margin="0,225,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Sample details:">
+            <Grid>
+
+                <TabControl Name="tabSampleType"
+                            Width="700"
+                            Margin="10,10,10,10"
+                            HorizontalAlignment="Left"
+                            Focusable="False"
+                            IsEnabled="True"
+                            TabStripPlacement="Top">
+
+                    <TabItem Name="tabColour" Focusable="False">
+                        <Grid>
+                            <GroupBox Name="grpColourDesc"
+                                      Width="675"
+                                      Height="150"
+                                      Margin="10,5,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Description:">
+                                <Grid>
+                                    <TextBox Name="txtColourDesc"
+                                             Width="660"
+                                             Height="125"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             BorderThickness="0"
+                                             HorizontalScrollBarVisibility="Auto"
+                                             IsReadOnly="true"
+                                             Text="ColourDesc"
+                                             TextWrapping="Wrap"
+                                             VerticalScrollBarVisibility="Auto" />
+                                </Grid>
+                            </GroupBox>
+
+                            <TabControl Name="tabColourData"
+                                        Width="425"
+                                        Margin="5,160,0,10"
+                                        HorizontalAlignment="Left"
+                                        BorderThickness="2"
+                                        Focusable="False"
+                                        IsEnabled="True"
+                                        TabStripPlacement="Top">
+
+                                <TabItem Name="tabColourModePCL" Focusable="False">
+                                    <Grid>
+                                        <GroupBox Name="grpColourModePCL"
+                                                  Width="400"
+                                                  Height="225"
+                                                  Margin="10,5,10,10"
+                                                  VerticalAlignment="Top"
+                                                  BorderThickness="3"
+                                                  Header="Colour mode:">
+                                            <Grid>
+                                                <RadioButton Name="rbColourModePCL_Simple"
+                                                             Height="16"
+                                                             Margin="5,10,0,0"
+                                                             HorizontalAlignment="Left"
+                                                             VerticalAlignment="Top"
+                                                             Click="rbColourModePCL_Simple_Click"
+                                                             Content="Simple colour mode"
+                                                             GroupName="SelColour" />
+                                                <RadioButton Name="rbColourModePCL_Imaging"
+                                                             Height="16"
+                                                             Margin="5,30,0,0"
+                                                             HorizontalAlignment="Left"
+                                                             VerticalAlignment="Top"
+                                                             Click="rbColourModePCL_Imaging_Click"
+                                                             Content="PCL imaging mode"
+                                                             GroupName="SelColour" />
+
+                                                <GroupBox Name="grpColourModePCL_CID"
+                                                          Width="250"
+                                                          Height="130"
+                                                          Margin="5,70,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          BorderThickness="3"
+                                                          Header="Sample colour definition:">
+                                                    <Grid>
+                                                        <Label Name="lbColourPCL_CIDHddr1"
+                                                               Width="50"
+                                                               Height="25"
+                                                               Margin="70,0,0,0"
+                                                               HorizontalAlignment="Left"
+                                                               VerticalAlignment="Top"
+                                                               Content="Comp1" />
+                                                        <Label Name="lbColourPCL_CIDHddr2"
+                                                               Width="50"
+                                                               Height="25"
+                                                               Margin="120,0,0,0"
+                                                               HorizontalAlignment="Left"
+                                                               VerticalAlignment="Top"
+                                                               Content="Comp2" />
+                                                        <Label Name="lbColourPCL_CIDHddr3"
+                                                               Width="50"
+                                                               Height="25"
+                                                               Margin="170,0,0,0"
+                                                               HorizontalAlignment="Left"
+                                                               VerticalAlignment="Top"
+                                                               Content="Comp3" />
+
+                                                        <Label Name="lbColourPCL_CID_0"
+                                                               Width="60"
+                                                               Height="25"
+                                                               Margin="5,15,0,0"
+                                                               HorizontalAlignment="Left"
+                                                               VerticalAlignment="Top"
+                                                               Content="Colour 0:" />
+                                                        <Label Name="lbColourPCL_CID_1"
+                                                               Width="60"
+                                                               Height="25"
+                                                               Margin="5,35,0,0"
+                                                               HorizontalAlignment="Left"
+                                                               VerticalAlignment="Top"
+                                                               Content="Colour 1:" />
+                                                        <Label Name="lbColourPCL_CID_2"
+                                                               Width="60"
+                                                               Height="25"
+                                                               Margin="5,55,0,0"
+                                                               HorizontalAlignment="Left"
+                                                               VerticalAlignment="Top"
+                                                               Content="Colour 2:" />
+                                                        <Label Name="lbColourPCL_CID_3"
+                                                               Width="60"
+                                                               Height="25"
+                                                               Margin="5,75,0,0"
+                                                               HorizontalAlignment="Left"
+                                                               VerticalAlignment="Top"
+                                                               Content="Colour 3:" />
+
+                                                        <TextBox Name="txtColourPCL_CID_01"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="75,20,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+                                                        <TextBox Name="txtColourPCL_CID_02"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="125,20,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+                                                        <TextBox Name="txtColourPCL_CID_03"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="175,20,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+
+                                                        <TextBox Name="txtColourPCL_CID_11"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="75,40,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+                                                        <TextBox Name="txtColourPCL_CID_12"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="125,40,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+                                                        <TextBox Name="txtColourPCL_CID_13"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="175,40,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+
+                                                        <TextBox Name="txtColourPCL_CID_21"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="75,60,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+                                                        <TextBox Name="txtColourPCL_CID_22"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="125,60,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+                                                        <TextBox Name="txtColourPCL_CID_23"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="175,60,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+
+                                                        <TextBox Name="txtColourPCL_CID_31"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="75,80,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+                                                        <TextBox Name="txtColourPCL_CID_32"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="125,80,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+                                                        <TextBox Name="txtColourPCL_CID_33"
+                                                                 Width="40"
+                                                                 Height="20"
+                                                                 Margin="175,80,0,0"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalContentAlignment="Right"
+                                                                 VerticalContentAlignment="Bottom"
+                                                                 FontFamily="Lucida Console"
+                                                                 FontSize="12"
+                                                                 GotFocus="txtColourPCL_CID_GotFocus"
+                                                                 LostFocus="txtColourPCL_CID_LostFocus" />
+                                                    </Grid>
+                                                </GroupBox>
+
+                                                <GroupBox Name="grpColourModePCLFormat"
+                                                          Width="90"
+                                                          Height="65"
+                                                          Margin="285,105,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          BorderThickness="2"
+                                                          Header="Format">
+                                                    <Grid>
+                                                        <RadioButton Name="rbColourOptPCLFmtDec"
+                                                                     Grid.ColumnSpan="2"
+                                                                     Height="16"
+                                                                     Margin="5,5,0,0"
+                                                                     HorizontalAlignment="Left"
+                                                                     VerticalAlignment="Top"
+                                                                     Click="rbColourOptPCLFmtDec_Click"
+                                                                     Content="Decimal"
+                                                                     GroupName="MapFormat_PCL"
+                                                                     IsChecked="True" />
+                                                        <RadioButton Name="rbColourOptPCLFmtHex"
+                                                                     Grid.ColumnSpan="2"
+                                                                     Height="16"
+                                                                     Margin="5,25,0,0"
+                                                                     HorizontalAlignment="Left"
+                                                                     VerticalAlignment="Top"
+                                                                     Click="rbColourOptPCLFmtHex_Click"
+                                                                     Content="Hex"
+                                                                     GroupName="MapFormat_PCL" />
+                                                    </Grid>
+                                                </GroupBox>
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+                                </TabItem>
+
+                                <TabItem Name="tabColourOptPCLXL" Focusable="False">
+                                    <Grid>
+                                        <GroupBox Name="grpColourModePCLXL"
+                                                  Width="400"
+                                                  Height="230"
+                                                  Margin="10,5,10,10"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  BorderThickness="3"
+                                                  Header="Colour mode:">
+                                            <Grid>
+                                                <RadioButton Name="rbColourModePCLXL_Gray"
+                                                             Grid.ColumnSpan="2"
+                                                             Height="16"
+                                                             Margin="5,10,0,0"
+                                                             HorizontalAlignment="Left"
+                                                             VerticalAlignment="Top"
+                                                             Click="rbColourModePCLXL_Gray_Click"
+                                                             Content="Colour space Gray"
+                                                             GroupName="SelColour" />
+                                                <RadioButton Name="rbColourModePCLXL_RGB"
+                                                             Grid.ColumnSpan="2"
+                                                             Height="16"
+                                                             Margin="5,30,0,0"
+                                                             HorizontalAlignment="Left"
+                                                             VerticalAlignment="Top"
+                                                             Click="rbColourModePCLXL_RGB_Click"
+                                                             Content="Colour space RGB"
+                                                             GroupName="SelColour" />
+
+                                                <TabControl Name="tabColourPCLXLModes"
+                                                            Grid.ColumnSpan="2"
+                                                            Width="280"
+                                                            Margin="5,65,0,5"
+                                                            HorizontalAlignment="Left"
+                                                            BorderThickness="2"
+                                                            Focusable="False"
+                                                            IsEnabled="True"
+                                                            TabStripPlacement="Right">
+
+                                                    <TabItem Name="tabColourModePCLXL_Gray" Focusable="False">
+                                                        <Grid>
+                                                            <GroupBox Name="grpColourModePCLXL_Gray"
+                                                                      Width="250"
+                                                                      Height="125"
+                                                                      Margin="10,0,0,0"
+                                                                      HorizontalAlignment="Left"
+                                                                      VerticalAlignment="Top"
+                                                                      BorderThickness="3"
+                                                                      Header="Sample grayscale definition:">
+                                                                <Grid>
+                                                                    <Label Name="lbColourPCLXL_GrayHddr1"
+                                                                           Width="50"
+                                                                           Height="25"
+                                                                           Margin="70,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Comp1" />
+
+                                                                    <Label Name="lbColourPCLXL_Gray0"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="5,15,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Shade 0:" />
+                                                                    <Label Name="lbColourPCLXL_Gray1"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="5,35,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Shade 1:" />
+                                                                    <Label Name="lbColourPCLXL_Gray2"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="5,55,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Shade 2:" />
+                                                                    <Label Name="lbColourPCLXL_Gray3"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="5,75,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Shade 3:" />
+
+                                                                    <TextBox Name="txtColourPCLXL_Gray_01"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="75,20,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_Gray_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_Gray_LostFocus" />
+
+                                                                    <TextBox Name="txtColourPCLXL_Gray_11"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="75,40,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_Gray_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_Gray_LostFocus" />
+
+                                                                    <TextBox Name="txtColourPCLXL_Gray_21"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="75,60,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_Gray_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_Gray_LostFocus" />
+
+                                                                    <TextBox Name="txtColourPCLXL_Gray_31"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="75,80,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_Gray_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_Gray_LostFocus" />
+                                                                </Grid>
+                                                            </GroupBox>
+                                                        </Grid>
+                                                    </TabItem>
+
+                                                    <TabItem Name="tabColourModePCLXL_RGB" Focusable="False">
+                                                        <Grid>
+                                                            <GroupBox Name="grpColourModePCLXL_RGB"
+                                                                      Width="250"
+                                                                      Height="125"
+                                                                      Margin="10,0,0,0"
+                                                                      HorizontalAlignment="Left"
+                                                                      VerticalAlignment="Top"
+                                                                      BorderThickness="3"
+                                                                      Header="Sample colour definition:">
+                                                                <Grid>
+                                                                    <Label Name="lbColourPCLXL_RGB_Hddr1"
+                                                                           Width="50"
+                                                                           Height="25"
+                                                                           Margin="70,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Comp1" />
+                                                                    <Label Name="lbColourPCLXL_RGB_Hddr2"
+                                                                           Width="50"
+                                                                           Height="25"
+                                                                           Margin="120,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Comp2" />
+                                                                    <Label Name="lbColourPCLXL_RGB_Hddr3"
+                                                                           Width="50"
+                                                                           Height="25"
+                                                                           Margin="170,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Comp3" />
+
+                                                                    <Label Name="lbColourPCLXL_RGB_0"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="5,15,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 0:" />
+                                                                    <Label Name="lbColourPCLXL_RGB_1"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="5,35,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 1:" />
+                                                                    <Label Name="lbColourPCLXL_RGB_2"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="5,55,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 2:" />
+                                                                    <Label Name="lbColourPCLXL_RGB_3"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="5,75,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 3:" />
+
+                                                                    <TextBox Name="txtColourPCLXL_RGB_01"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="75,20,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+                                                                    <TextBox Name="txtColourPCLXL_RGB_02"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="125,20,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+                                                                    <TextBox Name="txtColourPCLXL_RGB_03"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="175,20,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+
+                                                                    <TextBox Name="txtColourPCLXL_RGB_11"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="75,40,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+                                                                    <TextBox Name="txtColourPCLXL_RGB_12"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="125,40,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+                                                                    <TextBox Name="txtColourPCLXL_RGB_13"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="175,40,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+
+                                                                    <TextBox Name="txtColourPCLXL_RGB_21"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="75,60,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+                                                                    <TextBox Name="txtColourPCLXL_RGB_22"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="125,60,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+                                                                    <TextBox Name="txtColourPCLXL_RGB_23"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="175,60,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+
+                                                                    <TextBox Name="txtColourPCLXL_RGB_31"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="75,80,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+                                                                    <TextBox Name="txtColourPCLXL_RGB_32"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="125,80,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+                                                                    <TextBox Name="txtColourPCLXL_RGB_33"
+                                                                             Width="40"
+                                                                             Height="20"
+                                                                             Margin="175,80,0,0"
+                                                                             HorizontalAlignment="Left"
+                                                                             VerticalAlignment="Top"
+                                                                             HorizontalContentAlignment="Right"
+                                                                             VerticalContentAlignment="Bottom"
+                                                                             FontFamily="Lucida Console"
+                                                                             FontSize="12"
+                                                                             GotFocus="txtColourPCLXL_RGB_GotFocus"
+                                                                             LostFocus="txtColourPCLXL_RGB_LostFocus" />
+                                                                </Grid>
+                                                            </GroupBox>
+                                                        </Grid>
+                                                    </TabItem>
+                                                </TabControl>
+
+                                                <GroupBox Name="grpColourModePCLXLFormat"
+                                                          Grid.Column="1"
+                                                          Width="90"
+                                                          Height="65"
+                                                          Margin="285,105,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          BorderThickness="2"
+                                                          Header="Format">
+                                                    <Grid>
+                                                        <RadioButton Name="rbColourOptPCLXLFmtDec"
+                                                                     Grid.ColumnSpan="2"
+                                                                     Height="16"
+                                                                     Margin="5,5,0,0"
+                                                                     HorizontalAlignment="Left"
+                                                                     VerticalAlignment="Top"
+                                                                     Click="rbColourOptPCLXLFmtDec_Click"
+                                                                     Content="Decimal"
+                                                                     GroupName="MapFormat_PCLXL"
+                                                                     IsChecked="True" />
+                                                        <RadioButton Name="rbColourOptPCLXLFmtHex"
+                                                                     Grid.ColumnSpan="2"
+                                                                     Height="16"
+                                                                     Margin="5,25,0,0"
+                                                                     HorizontalAlignment="Left"
+                                                                     VerticalAlignment="Top"
+                                                                     Click="rbColourOptPCLXLFmtHex_Click"
+                                                                     Content="Hex"
+                                                                     GroupName="MapFormat_PCLXL" />
+                                                    </Grid>
+                                                </GroupBox>
+
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+                                </TabItem>
+
+                            </TabControl>
+
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabLogOper" Focusable="False">
+                        <Grid>
+                            <GroupBox Name="grpLogOperDesc"
+                                      Grid.ColumnSpan="2"
+                                      Width="675"
+                                      Height="150"
+                                      Margin="10,5,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Description:">
+                                <Grid>
+                                    <TextBox Name="txtLogOperDesc"
+                                             Width="660"
+                                             Height="125"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             BorderThickness="0"
+                                             HorizontalScrollBarVisibility="Auto"
+                                             IsReadOnly="true"
+                                             Text="LogOperDesc"
+                                             TextWrapping="Wrap"
+                                             VerticalScrollBarVisibility="Auto" />
+                                </Grid>
+                            </GroupBox>
+
+                            <TabControl Name="tabLogOperData"
+                                        Margin="5,160,0,10"
+                                        HorizontalAlignment="Left"
+                                        BorderThickness="2"
+                                        Focusable="False"
+                                        IsEnabled="True"
+                                        TabStripPlacement="Top">
+
+                                <TabItem Name="tabLogOperDataPCL" Focusable="False">
+                                    <Grid>
+                                        <GroupBox Name="grpLogOperModePCL"
+                                                  Width="360"
+                                                  Height="230"
+                                                  Margin="10,5,10,5"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  BorderThickness="3"
+                                                  Header="Colour space:">
+                                            <Grid>
+                                                <Label Name="lbLogOperModePCL"
+                                                       Width="80"
+                                                       Height="25"
+                                                       Margin="5,10,0,0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Content="Colour mode:" />
+
+                                                <ComboBox Name="cbLogOperModePCL"
+                                                          Width="165"
+                                                          Height="23"
+                                                          Margin="120,15,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          SelectionChanged="cbLogOperMode_SelectionChanged" />
+
+                                                <TabControl Name="tabLogOperClrPCL"
+                                                            Margin="5,45,5,5"
+                                                            HorizontalAlignment="Left"
+                                                            BorderThickness="2"
+                                                            Focusable="False"
+                                                            IsEnabled="True"
+                                                            TabStripPlacement="Top">
+
+                                                    <TabItem Name="tabLogOperClrSimplePCL" Focusable="False">
+                                                        <Grid>
+                                                            <GroupBox Name="grpLogOperClrSimplePCL"
+                                                                      Grid.ColumnSpan="2"
+                                                                      Width="310"
+                                                                      Height="130"
+                                                                      Margin="10,5,10,10"
+                                                                      HorizontalAlignment="Left"
+                                                                      VerticalAlignment="Top"
+                                                                      BorderThickness="3"
+                                                                      Header="Sample colour data:">
+                                                                <Grid>
+                                                                    <Label Name="lbLogOperClr1PCL"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="120,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 1:" />
+                                                                    <Label Name="lbLogOperClr2PCL"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="220,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 2:" />
+
+                                                                    <Label Name="lbLogOperClrDPCL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,15,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Destination:" />
+                                                                    <Label Name="lbLogOperClrSPCL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,45,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Source image:" />
+                                                                    <Label Name="lbLogOperClrTPCL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,75,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Texture (pattern):" />
+
+                                                                    <ComboBox Name="cbLogOperClrD1PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,20,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrD1_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperClrS1PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,50,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrS1_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperClrT1PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,80,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrT1_SelectionChanged" />
+
+                                                                    <ComboBox Name="cbLogOperClrD2PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,20,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrD2_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperClrS2PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,50,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrS2_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperClrT2PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,80,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrT2_SelectionChanged" />
+                                                                </Grid>
+                                                            </GroupBox>
+                                                        </Grid>
+                                                    </TabItem>
+
+                                                    <TabItem Name="tabLogOperClrMonoPCL" Focusable="False">
+                                                        <Grid>
+                                                            <GroupBox Name="grpLogOperClrMonoPCL"
+                                                                      Grid.ColumnSpan="2"
+                                                                      Width="310"
+                                                                      Height="130"
+                                                                      Margin="10,5,10,10"
+                                                                      HorizontalAlignment="Left"
+                                                                      VerticalAlignment="Top"
+                                                                      BorderThickness="3"
+                                                                      Header="Sample monochrome data:">
+                                                                <Grid>
+                                                                    <Label Name="lbLogOperMono1PCL"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="120,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 1:" />
+                                                                    <Label Name="lbLogOperMono2PCL"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="220,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 2:" />
+
+                                                                    <Label Name="lbLogOperMonoDPCL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,15,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Destination:" />
+                                                                    <Label Name="lbLogOperMonoSPCL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,45,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Source image:" />
+                                                                    <Label Name="lbLogOperMonoTPCL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,75,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Texture (pattern):" />
+
+                                                                    <ComboBox Name="cbLogOperMonoD1PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,20,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayD1_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperMonoS1PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,50,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayS1_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperMonoT1PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,80,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayT1_SelectionChanged" />
+
+                                                                    <ComboBox Name="cbLogOperMonoD2PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,20,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayD2_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperMonoS2PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,50,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayS2_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperMonoT2PCL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,80,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayT2_SelectionChanged" />
+                                                                </Grid>
+                                                            </GroupBox>
+                                                        </Grid>
+                                                    </TabItem>
+                                                </TabControl>
+                                            </Grid>
+                                        </GroupBox>
+
+                                        <GroupBox Name="grpLogOperOptionsPCL"
+                                                  Grid.Column="1"
+                                                  Width="250"
+                                                  Height="90"
+                                                  Margin="430,5,0,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  BorderThickness="3"
+                                                  Header="Options:">
+                                            <Grid>
+
+                                                <Label Name="lbLogOperROPFromPCL"
+                                                       Width="70"
+                                                       Height="25"
+                                                       Margin="5,20,0,0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Content="ROP from:" />
+                                                <Label Name="lbLogOperROPToPCL"
+                                                       Width="25"
+                                                       Height="25"
+                                                       Margin="145,20,0,0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Content="to:" />
+
+                                                <ComboBox Name="cbLogOperROPFromPCL"
+                                                          Width="50"
+                                                          Height="23"
+                                                          Margin="90,25,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          SelectionChanged="cbLogOperROPFrom_SelectionChanged" />
+                                                <ComboBox Name="cbLogOperROPToPCL"
+                                                          Width="50"
+                                                          Height="23"
+                                                          Margin="170,25,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          SelectionChanged="cbLogOperROPTo_SelectionChanged" />
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+                                </TabItem>
+
+                                <TabItem Name="tabLogOperDataPCLXL" Focusable="False">
+                                    <Grid>
+                                        <GroupBox Name="grpLogOperModePCLXL"
+                                                  Width="360"
+                                                  Height="230"
+                                                  Margin="10,5,10,5"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  BorderThickness="3"
+                                                  Header="Colour space:">
+                                            <Grid>
+                                                <Label Name="lbLogOperModePCLXL"
+                                                       Width="80"
+                                                       Height="25"
+                                                       Margin="5,10,0,0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Content="Colour mode:" />
+
+                                                <ComboBox Name="cbLogOperModePCLXL"
+                                                          Width="165"
+                                                          Height="23"
+                                                          Margin="120,15,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          SelectionChanged="cbLogOperMode_SelectionChanged" />
+
+                                                <TabControl Name="tabLogOperClrPCLXL"
+                                                            Margin="5,45,5,5"
+                                                            HorizontalAlignment="Left"
+                                                            BorderThickness="2"
+                                                            Focusable="False"
+                                                            IsEnabled="True"
+                                                            TabStripPlacement="Top">
+
+                                                    <TabItem Name="tabLogOperClrGrayPCLXL" Focusable="False">
+                                                        <Grid>
+                                                            <GroupBox Name="grpLogOperClrGrayPCLXL"
+                                                                      Grid.ColumnSpan="2"
+                                                                      Width="310"
+                                                                      Height="130"
+                                                                      Margin="10,5,10,10"
+                                                                      HorizontalAlignment="Left"
+                                                                      VerticalAlignment="Top"
+                                                                      BorderThickness="3"
+                                                                      Header="Sample gray data:">
+                                                                <Grid>
+                                                                    <Label Name="lbLogOperGray1PCLXL"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="120,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Shade 1:" />
+                                                                    <Label Name="lbLogOperGray2PCLXL"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="220,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Shade 2:" />
+
+                                                                    <Label Name="lbLogOperGrayDPCLXL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,15,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Destination:" />
+                                                                    <Label Name="lbLogOperGraySPCLXL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,45,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Source image:" />
+                                                                    <Label Name="lbLogOperGrayTPCLXL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,75,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Texture (pattern):" />
+
+                                                                    <ComboBox Name="cbLogOperGrayD1PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,20,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayD1_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperGrayS1PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,50,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayS1_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperGrayT1PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,80,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayT1_SelectionChanged" />
+
+                                                                    <ComboBox Name="cbLogOperGrayD2PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,20,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayD2_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperGrayS2PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,50,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayS2_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperGrayT2PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,80,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperGrayT2_SelectionChanged" />
+                                                                </Grid>
+                                                            </GroupBox>
+                                                        </Grid>
+                                                    </TabItem>
+
+                                                    <TabItem Name="tabLogOperClrRGBPCLXL" Focusable="False">
+                                                        <Grid>
+                                                            <GroupBox Name="grpLogOperClrRGBPCLXL"
+                                                                      Grid.ColumnSpan="2"
+                                                                      Width="310"
+                                                                      Height="130"
+                                                                      Margin="10,5,10,10"
+                                                                      HorizontalAlignment="Left"
+                                                                      VerticalAlignment="Top"
+                                                                      BorderThickness="3"
+                                                                      Header="Sample colour data:">
+                                                                <Grid>
+                                                                    <Label Name="lbLogOperClr1PCLXL"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="120,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 1:" />
+                                                                    <Label Name="lbLogOperClr2PCLXL"
+                                                                           Width="60"
+                                                                           Height="25"
+                                                                           Margin="220,0,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Colour 2:" />
+
+                                                                    <Label Name="lbLogOperClrDPCLXL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,15,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Destination:" />
+                                                                    <Label Name="lbLogOperClrSPCLXL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,45,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Source image:" />
+                                                                    <Label Name="lbLogOperClrTPCLXL"
+                                                                           Width="120"
+                                                                           Height="25"
+                                                                           Margin="0,75,0,0"
+                                                                           HorizontalAlignment="Left"
+                                                                           VerticalAlignment="Top"
+                                                                           Content="Texture (pattern):" />
+
+                                                                    <ComboBox Name="cbLogOperClrD1PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,20,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrD1_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperClrS1PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,50,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrS1_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperClrT1PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="100,80,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrT1_SelectionChanged" />
+
+                                                                    <ComboBox Name="cbLogOperClrD2PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,20,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrD2_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperClrS2PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,50,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrS2_SelectionChanged" />
+                                                                    <ComboBox Name="cbLogOperClrT2PCLXL"
+                                                                              Width="90"
+                                                                              Height="23"
+                                                                              Margin="200,80,0,0"
+                                                                              HorizontalAlignment="Left"
+                                                                              VerticalAlignment="Top"
+                                                                              SelectionChanged="cbLogOperClrT2_SelectionChanged" />
+                                                                </Grid>
+                                                            </GroupBox>
+                                                        </Grid>
+                                                    </TabItem>
+
+                                                </TabControl>
+                                            </Grid>
+                                        </GroupBox>
+
+
+                                        <GroupBox Name="grpLogOperOptionsPCLXL"
+                                                  Grid.Column="1"
+                                                  Width="250"
+                                                  Height="180"
+                                                  Margin="430,5,0,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  BorderThickness="3"
+                                                  Header="Options:">
+                                            <Grid>
+
+                                                <Label Name="lbLogOperROPFromPCLXL"
+                                                       Width="70"
+                                                       Height="25"
+                                                       Margin="5,20,0,0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Content="ROP from:" />
+                                                <Label Name="lbLogOperROPToPCLXL"
+                                                       Width="25"
+                                                       Height="25"
+                                                       Margin="145,20,0,0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Content="to:" />
+
+                                                <ComboBox Name="cbLogOperROPFromPCLXL"
+                                                          Width="50"
+                                                          Height="23"
+                                                          Margin="90,25,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          SelectionChanged="cbLogOperROPFrom_SelectionChanged" />
+                                                <ComboBox Name="cbLogOperROPToPCLXL"
+                                                          Width="50"
+                                                          Height="23"
+                                                          Margin="170,25,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          SelectionChanged="cbLogOperROPTo_SelectionChanged" />
+                                                <GroupBox Name="grpLogOperOptSrcTextPCLXL"
+                                                          Grid.Column="1"
+                                                          Width="200"
+                                                          Height="65"
+                                                          Margin="10,70,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          BorderThickness="3"
+                                                          Header="Source text uses:">
+                                                    <Grid>
+                                                        <RadioButton Name="rbLogOperOptSrcTextClrPCLXL"
+                                                                     Grid.ColumnSpan="2"
+                                                                     Height="16"
+                                                                     Margin="5,5,0,0"
+                                                                     HorizontalAlignment="Left"
+                                                                     VerticalAlignment="Top"
+                                                                     Click="rbLogOperOptSrcTextClr_Click"
+                                                                     Content="Source image colours/shades"
+                                                                     GroupName="SrcTextUse_PCLXL"
+                                                                     IsChecked="True" />
+                                                        <RadioButton Name="rbLogOperOptSrcTextPatPCLXL"
+                                                                     Grid.ColumnSpan="2"
+                                                                     Height="16"
+                                                                     Margin="5,25,0,0"
+                                                                     HorizontalAlignment="Left"
+                                                                     VerticalAlignment="Top"
+                                                                     Click="rbLogOperOptSrcTextPat_Click"
+                                                                     Content="Pattern"
+                                                                     GroupName="SrcTextUse_PCLXL" />
+                                                    </Grid>
+                                                </GroupBox>
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+                                </TabItem>
+
+                            </TabControl>
+
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabLogPage" Focusable="False">
+                        <Grid>
+                            <GroupBox Name="grpLogPageDesc"
+                                      Width="675"
+                                      Height="150"
+                                      Margin="10,5,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Description:">
+                                <Grid>
+                                    <TextBox Name="txtLogPageDesc"
+                                             Width="660"
+                                             Height="125"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             BorderThickness="0"
+                                             HorizontalScrollBarVisibility="Auto"
+                                             IsReadOnly="true"
+                                             Text="TextDesc"
+                                             TextWrapping="Wrap"
+                                             VerticalScrollBarVisibility="Auto" />
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Name="grpLogPagePhysical"
+                                      Width="320"
+                                      Height="110"
+                                      Margin="10,160,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Paper metrics:">
+                                <Grid>
+                                    <Label Name="lbLogPagePhyDPt"
+                                           Width="50"
+                                           Height="25"
+                                           Margin="132,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="deciPt" />
+                                    <Label Name="lbLogPagePhyImp"
+                                           Width="40"
+                                           Height="25"
+                                           Margin="192,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="inch" />
+                                    <Label Name="lbLogPagePhyMet"
+                                           Width="40"
+                                           Height="25"
+                                           Margin="252,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="mm" />
+
+                                    <Label Name="lbLogPagePaperWidth"
+                                           Width="170"
+                                           Height="25"
+                                           Margin="5,15,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="Paper width:" />
+                                    <Label Name="lbLogPagePaperHeight"
+                                           Width="170"
+                                           Height="25"
+                                           Margin="5,37,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="Paper height:" />
+                                    <Label Name="lbLogPageUnprintable"
+                                           Width="170"
+                                           Height="25"
+                                           Margin="5,59,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="Unprintable margins:" />
+
+                                    <TextBox Name="txtLogPagePaperWidthDPt"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="130,20,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPagePaperHeightDPt"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="130,42,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPageUnprintableDPt"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="130,64,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+
+                                    <TextBox Name="txtLogPagePaperWidthImp"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="190,20,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPagePaperHeightImp"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="190,42,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPageUnprintableImp"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="190,64,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+
+                                    <TextBox Name="txtLogPagePaperWidthMet"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="250,20,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPagePaperHeightMet"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="250,42,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPageUnprintableMet"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="250,64,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Name="grpLogPageLogical"
+                                      Width="320"
+                                      Height="140"
+                                      Margin="10,270,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Logical page metrics:">
+                                <Grid>
+                                    <Button Name="btnLogPageReset"
+                                            Width="50"
+                                            Height="20"
+                                            Margin="10,5,0,0"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            Click="btnLogPageReset_Click"
+                                            Content="Reset"
+                                            Style="{StaticResource SecondaryButton}" />
+
+                                    <Label Name="lbLogPageDPtLog"
+                                           Width="50"
+                                           Height="25"
+                                           Margin="132,5,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="deciPt" />
+                                    <Label Name="lbLogPageImpLog"
+                                           Width="40"
+                                           Height="25"
+                                           Margin="192,5,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="inch" />
+                                    <Label Name="lbLogPageMetLog"
+                                           Width="40"
+                                           Height="25"
+                                           Margin="252,5,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="mm" />
+
+                                    <Label Name="lbLogPageOffLeft"
+                                           Width="170"
+                                           Height="25"
+                                           Margin="5,20,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="Left offset:" />
+                                    <Label Name="lbLogPageOffTop"
+                                           Width="170"
+                                           Height="25"
+                                           Margin="5,42,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="Top offset:" />
+                                    <Label Name="lbLogPageWidth"
+                                           Width="170"
+                                           Height="25"
+                                           Margin="5,64,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="Page width:" />
+                                    <Label Name="lbLogPageHeight"
+                                           Width="170"
+                                           Height="25"
+                                           Margin="5,86,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="Page height:" />
+
+                                    <TextBox Name="txtLogPageOffLeftDPt"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="130,25,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="True"
+                                             IsReadOnly="False"
+                                             LostFocus="txtLogPageOffLeftDPt_LostFocus"
+                                             TextChanged="txtLogPageOffLeftDPt_TextChanged" />
+                                    <TextBox Name="txtLogPageOffTopDPt"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="130,47,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="True"
+                                             IsReadOnly="False"
+                                             LostFocus="txtLogPageOffTopDPt_LostFocus"
+                                             TextChanged="txtLogPageOffTopDPt_TextChanged" />
+                                    <TextBox Name="txtLogPageWidthDPt"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="130,69,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="True"
+                                             IsReadOnly="False"
+                                             LostFocus="txtLogPageWidthDPt_LostFocus"
+                                             TextChanged="txtLogPageWidthDPt_TextChanged" />
+                                    <TextBox Name="txtLogPageHeightDPt"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="130,91,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="True"
+                                             IsReadOnly="False"
+                                             LostFocus="txtLogPageHeightDPt_LostFocus"
+                                             TextChanged="txtLogPageHeightDPt_TextChanged" />
+
+                                    <TextBox Name="txtLogPageOffLeftImp"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="190,25,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPageOffTopImp"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="190,47,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPageWidthImp"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="190,69,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPageHeightImp"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="190,91,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+
+                                    <TextBox Name="txtLogPageOffLeftMet"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="250,25,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPageOffTopMet"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="250,47,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPageWidthMet"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="250,69,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    <TextBox Name="txtLogPageHeightMet"
+                                             Width="45"
+                                             Height="20"
+                                             Margin="250,91,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Right"
+                                             VerticalContentAlignment="Center"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Name="grpLogPageOptions"
+                                      Width="250"
+                                      Height="90"
+                                      Margin="435,160,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Options:">
+                                <Grid Margin="0,0,0,10">
+                                    <CheckBox Name="chkLogPageOptStdPage"
+                                              Width="130"
+                                              Height="20"
+                                              Margin="5,25,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkLogPageOptStdPage_Checked"
+                                              Content="add standard page"
+                                              IsChecked="True"
+                                              Unchecked="chkLogPageOptStdPage_Unchecked" />
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabPattern" Focusable="False">
+                        <Grid>
+                            <GroupBox Name="grpPatternDesc"
+                                      Width="675"
+                                      Height="150"
+                                      Margin="10,5,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Description:">
+                                <Grid>
+                                    <TextBox Name="txtPatternDesc"
+                                             Width="660"
+                                             Height="125"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             BorderThickness="0"
+                                             HorizontalScrollBarVisibility="Auto"
+                                             IsReadOnly="true"
+                                             Text="TextDesc"
+                                             TextWrapping="Wrap"
+                                             VerticalScrollBarVisibility="Auto" />
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Name="grpPatternType"
+                                      Width="175"
+                                      Height="90"
+                                      Margin="10,160,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Sample type:">
+                                <Grid>
+                                    <RadioButton Name="rbPatternTypeShading"
+                                                 Height="16"
+                                                 Margin="5,15,0,0"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Click="rbPatternTypeShading_Click"
+                                                 Content="Shading"
+                                                 GroupName="SelPattern" />
+                                    <RadioButton Name="rbPatternTypeXHatch"
+                                                 Height="16"
+                                                 Margin="5,35,0,0"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Click="rbPatternTypeXHatch_Click"
+                                                 Content="Cross-hatch"
+                                                 GroupName="SelPattern" />
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabTxtMod"
+                             Focusable="False"
+                             IsEnabled="True">
+                        <Grid>
+                            <GroupBox Name="grpTxtModDesc"
+                                      Width="675"
+                                      Height="150"
+                                      Margin="10,5,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Description:">
+                                <Grid>
+                                    <TextBox Name="txtTxtModDesc"
+                                             Width="660"
+                                             Height="125"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             BorderThickness="0"
+                                             HorizontalScrollBarVisibility="Auto"
+                                             IsReadOnly="true"
+                                             Text="TextDesc"
+                                             TextWrapping="Wrap"
+                                             VerticalScrollBarVisibility="Auto" />
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Name="grpTxtModType"
+                                      Width="205"
+                                      Height="110"
+                                      Margin="10,160,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Sample type:">
+                                <Grid>
+                                    <RadioButton Name="rbTxtModTypeChr"
+                                                 Height="16"
+                                                 Margin="5,15,0,0"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Click="rbTxtModTypeChr_Click"
+                                                 Content="Character modification"
+                                                 GroupName="SelTxtMod" />
+                                    <RadioButton Name="rbTxtModTypePat"
+                                                 Height="16"
+                                                 Margin="5,35,0,0"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Click="rbTxtModTypePat_Click"
+                                                 Content="Text and background patterns"
+                                                 GroupName="SelTxtMod" />
+                                    <RadioButton Name="rbTxtModTypeRot"
+                                                 Height="16"
+                                                 Margin="5,55,0,0"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Click="rbTxtModTypeRot_Click"
+                                                 Content="Text rotation"
+                                                 GroupName="SelTxtMod" />
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabUnicode" Focusable="False">
+                        <Grid>
+                            <GroupBox Name="grpUnicodeDesc"
+                                      Width="675"
+                                      Height="150"
+                                      Margin="10,5,10,10"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Description:">
+                                <Grid>
+                                    <TextBox Name="txtUnicodeDesc"
+                                             Width="660"
+                                             Height="125"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             BorderThickness="0"
+                                             HorizontalScrollBarVisibility="Auto"
+                                             IsReadOnly="true"
+                                             Text="TextDesc"
+                                             TextWrapping="Wrap"
+                                             VerticalScrollBarVisibility="Auto" />
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Name="grpUnicodeFont"
+                                      Width="200"
+                                      Height="100"
+                                      Margin="10,160,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Font:">
+                                <Grid>
+                                    <ComboBox Name="cbUnicodeFont"
+                                              Width="170"
+                                              Height="23"
+                                              Margin="10,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              SelectionChanged="cbUnicodeFont_SelectionChanged" />
+
+                                    <RadioButton Name="rbUnicodeFontVarR"
+                                                 Width="70"
+                                                 Height="16"
+                                                 Margin="10,40,0,0"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Click="rbUnicodeFontVarR_Click"
+                                                 Content="Regular" />
+                                    <RadioButton Name="rbUnicodeFontVarI"
+                                                 Width="70"
+                                                 Height="16"
+                                                 Margin="10,60,0,0"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Click="rbUnicodeFontVarI_Click"
+                                                 Content="Italic" />
+                                    <RadioButton Name="rbUnicodeFontVarB"
+                                                 Width="70"
+                                                 Height="16"
+                                                 Margin="90,40,0,0"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Click="rbUnicodeFontVarB_Click"
+                                                 Content="Bold" />
+                                    <RadioButton Name="rbUnicodeFontVarBI"
+                                                 Width="70"
+                                                 Height="16"
+                                                 Margin="90,60,0,0"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Click="rbUnicodeFontVarBI_Click"
+                                                 Content="Bold Italic" />
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Name="grpUnicodeChar"
+                                      Width="300"
+                                      Height="160"
+                                      Margin="10,280,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="3"
+                                      Header="Sample code-point:">
+                                <Grid>
+                                    <Label Name="lbUnicodeUCS2"
+                                           Width="60"
+                                           Height="28"
+                                           Margin="5,10,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="U+"/>
+
+                                    <Label Name="lbUnicodeUTF8"
+                                           Width="60"
+                                           Height="28"
+                                           Margin="5,40,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="UTF-8:" />
+
+                                    <Label Name="lbUnicodeBlock"
+                                           Width="60"
+                                           Height="28"
+                                           Margin="5,70,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="Block:" />
+                                    
+                                    <Label Name="lbUnicodeCat"
+                                           Width="60"
+                                           Height="28"
+                                           Margin="5,100,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Content="Category:" />
+
+                                    <ComboBox Name="cbUnicodeCp01"
+                                              Width="50"
+                                              Height="23"
+                                              Margin="65,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              SelectionChanged="cbUnicodeCp_SelectionChanged" />
+                                    <ComboBox Name="cbUnicodeCp02"
+                                              Width="50"
+                                              Height="23"
+                                              Margin="125,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              SelectionChanged="cbUnicodeCp_SelectionChanged" />
+
+                                    <TextBox Name="txtUnicodeUTF8"
+                                             Width="75"
+                                             Height="20"
+                                             Margin="65,42,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Left"
+                                             VerticalContentAlignment="Bottom"
+                                             FontFamily="Lucida Console"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    
+                                    <TextBox Name="txtUnicodeBlock"
+                                             Width="220"
+                                             Height="20"
+                                             Margin="65,72,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Left"
+                                             VerticalContentAlignment="Bottom"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                    
+                                    <TextBox Name="txtUnicodeCat"
+                                             Width="180"
+                                             Height="20"
+                                             Margin="65,102,0,0"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             HorizontalContentAlignment="Left"
+                                             VerticalContentAlignment="Bottom"
+                                             IsEnabled="False"
+                                             IsReadOnly="True" />
+                                </Grid>
+                            </GroupBox>
+
+
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </GroupBox>
+
+        <Button Name="btnGenerate"
+                Width="300"
+                Height="40"
+                Margin="440,150,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="btnGenerate_Click"
+                Content="Generate print data"
+                Style="{StaticResource PrimaryButton}" />
+
+    </Grid>
+</Window>

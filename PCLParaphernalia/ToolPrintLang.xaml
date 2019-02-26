@@ -1,0 +1,539 @@
+﻿<Window x:Class="PCLParaphernalia.ToolPrintLang"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowPrintLang"
+        Width="760"
+        Height="780">
+    <Grid>
+        <Label Name="targetLab"
+               Width="350"
+               Height="35"
+               Margin="0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Print language data:"
+               FontSize="18" />
+
+        <GroupBox Name="grpSelect"
+                  Width="430"
+                  Height="235"
+                  Margin="0,35,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Selection:">
+            <Grid>
+                <RadioButton Name="rbSelTypePCL"
+                             Height="16"
+                             Margin="10,10,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypePCL_Click"
+                             Content="PCL"
+                             GroupName="SelType" />
+                <RadioButton Name="rbSelTypeHPGL2"
+                             Height="16"
+                             Margin="10,30,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypeHPGL2_Click"
+                             Content="HP-GL/2"
+                             GroupName="SelType" />
+                <RadioButton Name="rbSelTypePCLXLTags"
+                             Height="16"
+                             Margin="10,50,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypePCLXLTags_Click"
+                             Content="PCL XL tags"
+                             GroupName="SelType" />
+                <RadioButton Name="rbSelTypePCLXLEnums"
+                             Height="16"
+                             Margin="10,70,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypePCLXLEnums_Click"
+                             Content="PCL XL enums"
+                             GroupName="SelType" />
+                <RadioButton Name="rbSelTypePJLCmds"
+                             Height="16"
+                             Margin="10,90,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypePJLCmds_Click"
+                             Content="PJL commands"
+                             GroupName="SelType" />
+                <RadioButton Name="rbSelTypePMLTags"
+                             Height="16"
+                             Margin="10,110,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypePMLTags_Click"
+                             Content="PML tags"
+                             GroupName="SelType" />
+                <RadioButton Name="rbSelTypeSymbolSets"
+                             Height="16"
+                             Margin="10,130,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypeSymbolSets_Click"
+                             Content="Symbol sets"
+                             GroupName="SelType" />
+                <RadioButton Name="rbSelTypeFonts"
+                             Height="16"
+                             Margin="10,150,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypeFonts_Click"
+                             Content="Fonts"
+                             GroupName="SelType" />
+                <RadioButton Name="rbSelTypePaperSizes"
+                             Height="16"
+                             Margin="10,170,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypePaperSizes_Click"
+                             Content="Paper sizes"
+                             GroupName="SelType" />
+                <RadioButton Name="rbSelTypePrescribe"
+                             Height="16"
+                             Margin="10,190,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Click="rbSelTypePrescribeCmds_Click"
+                             Content="Prescribe"
+                             GroupName="SelType" />
+
+                <TabControl Name="tabInfoType"
+                            Width="300"
+                            Margin="10,10,10,10"
+                            HorizontalAlignment="Right"
+                            Focusable="False"
+                            IsEnabled="True"
+                            TabStripPlacement="Top">
+                    <TabItem Name="tabPCL"
+                             Focusable="False"
+                             IsEnabled="True">
+                        <Grid>
+                            <GroupBox Name="grpPCLTypes"
+                                      Width="280"
+                                      Height="80"
+                                      Margin="5,5,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Header="Sequence types:"
+                                      IsEnabled="True">
+                                <Grid>
+                                    <CheckBox Name="chkPCLSeqSimple"
+                                              Height="16"
+                                              Margin="10,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLSeqSimple_Checked"
+                                              Content="Simple (2-character)"
+                                              IsChecked="True"
+                                              Unchecked="chkPCLSeqSimple_Unchecked" />
+                                    <CheckBox Name="chkPCLSeqControl"
+                                              Height="16"
+                                              Margin="150,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLSeqControl_Checked"
+                                              Content="Control codes"
+                                              IsChecked="True"
+                                              Unchecked="chkPCLSeqControl_Unchecked" />
+                                    <CheckBox Name="chkPCLSeqComplex"
+                                              Height="16"
+                                              Margin="10,30,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLSeqComplex_Checked"
+                                              Content="Complex (parameterised)"
+                                              IsChecked="True"
+                                              Unchecked="chkPCLSeqComplex_Unchecked" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Name="grpPCLOptions"
+                                      Width="280"
+                                      Height="80"
+                                      Margin="5,85,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Header="Options:">
+                                <Grid>
+                                    <CheckBox Name="chkPCLOptObsolete"
+                                              Height="16"
+                                              Margin="10,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLOptObsolete_Checked"
+                                              Content="Show Obsolete sequences"
+                                              IsChecked="False"
+                                              Unchecked="chkPCLOptObsolete_Unchecked" />
+                                    <CheckBox Name="chkPCLOptDiscrete"
+                                              Height="16"
+                                              Margin="10,30,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLOptDiscrete_Checked"
+                                              Content="Show Discrete values"
+                                              IsChecked="True"
+                                              Unchecked="chkPCLOptDiscrete_Unchecked" />
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabHPGL2" Focusable="False">
+                        <Grid />
+                    </TabItem>
+
+                    <TabItem Name="tabPCLXLTags" Focusable="False">
+                        <Grid>
+                            <GroupBox Name="grpPCLXLTypes"
+                                      Width="280"
+                                      Height="80"
+                                      Margin="5,5,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Header="Tag types:">
+                                <Grid>
+                                    <CheckBox Name="chkPCLXLTagDataType"
+                                              Height="16"
+                                              Margin="10,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLXLTagDataType_Checked"
+                                              Content="Data type"
+                                              IsChecked="True"
+                                              Unchecked="chkPCLXLTagDataType_Unchecked" />
+                                    <CheckBox Name="chkPCLXLTagAttribute"
+                                              Height="16"
+                                              Margin="100,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLXLTagAttribute_Checked"
+                                              Content="Attribute"
+                                              IsChecked="True"
+                                              Unchecked="chkPCLXLTagAttribute_Unchecked" />
+                                    <CheckBox Name="chkPCLXLTagOperator"
+                                              Height="16"
+                                              Margin="180,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLXLTagOperator_Checked"
+                                              Content="Operator"
+                                              IsChecked="True"
+                                              Unchecked="chkPCLXLTagOperator_Unchecked" />
+                                    <CheckBox Name="chkPCLXLTagWhitespace"
+                                              Height="16"
+                                              Margin="10,30,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLXLTagWhitespace_Checked"
+                                              Content="Whitespace"
+                                              IsChecked="True"
+                                              Unchecked="chkPCLXLTagWhitespace_Unchecked" />
+                                    <CheckBox Name="chkPCLXLTagAttrDefiner"
+                                              Height="16"
+                                              Margin="100,30,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLXLTagAttrDefiner_Checked"
+                                              Content="Attr. Def."
+                                              IsChecked="True"
+                                              Unchecked="chkPCLXLTagAttrDefiner_Unchecked" />
+                                    <CheckBox Name="chkPCLXLTagEmbedDataLen"
+                                              Height="16"
+                                              Margin="180,30,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLXLTagEmbedDataLen_Checked"
+                                              Content="Embed data"
+                                              IsChecked="True"
+                                              Unchecked="chkPCLXLTagEmbedDataLen_Unchecked" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Name="grpPCLXLOptions"
+                                      Width="280"
+                                      Height="80"
+                                      Margin="5,85,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Header="Options:">
+                                <Grid>
+                                    <CheckBox Name="chkPCLXLOptReserved"
+                                              Height="16"
+                                              Margin="10,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPCLXLOptReserved_Checked"
+                                              Content="Show Reserved tags"
+                                              IsChecked="False"
+                                              Unchecked="chkPCLXLOptReserved_Unchecked" />
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabPCLXLEnums" Focusable="False">
+                        <Grid />
+                    </TabItem>
+
+                    <TabItem Name="tabPJLCmds" Focusable="False">
+                        <Grid />
+                    </TabItem>
+
+                    <TabItem Name="tabPMLTags" Focusable="False">
+                        <Grid>
+                            <GroupBox Name="grpPMLTypes"
+                                      Width="280"
+                                      Height="80"
+                                      Margin="5,5,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Header="Tag types:">
+                                <Grid>
+                                    <CheckBox Name="chkPMLTagDataType"
+                                              Height="16"
+                                              Margin="10,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPMLTagDataType_Checked"
+                                              Content="Data Type"
+                                              IsChecked="True"
+                                              Unchecked="chkPMLTagDataType_Unchecked" />
+                                    <CheckBox Name="chkPMLTagAction"
+                                              Height="16"
+                                              Margin="100,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPMLTagAction_Checked"
+                                              Content="Action"
+                                              IsChecked="True"
+                                              Unchecked="chkPMLTagAction_Unchecked" />
+                                    <CheckBox Name="chkPMLTagOutcome"
+                                              Height="16"
+                                              Margin="180,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkPMLTagOutcome_Checked"
+                                              Content="Outcome"
+                                              IsChecked="True"
+                                              Unchecked="chkPMLTagOutcome_Unchecked" />
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabSymbolSets" Focusable="False">
+                        <Grid>
+                            <GroupBox Name="grpSymSetsOptions"
+                                      Width="280"
+                                      Height="150"
+                                      Margin="5,15,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Header="Options:">
+                                <Grid>
+                                    <CheckBox Name="chkSymSetOptMap"
+                                              Height="16"
+                                              Margin="10,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkSymSetOptMap_Checked"
+                                              Content="Show Mappings"
+                                              IsChecked="False"
+                                              Unchecked="chkSymSetOptMap_Unchecked" />
+
+                                    <GroupBox Name="grpSymSetMapType"
+                                              Width="260"
+                                              Height="120"
+                                              Margin="5,25,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Header="">
+                                        <Grid>
+                                            <RadioButton Name="rbSymSetMapStd"
+                                                         Height="16"
+                                                         Margin="10,0,0,0"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Top"
+                                                         Click="rbSymSetMapStd_Click"
+                                                         Content="Strict"
+                                                         GroupName="SymSetMap"
+                                                         IsChecked="True" />
+                                            <RadioButton Name="rbSymSetMapPCL"
+                                                         Height="16"
+                                                         Margin="105,0,0,0"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Top"
+                                                         Click="rbSymSetMapPCL_Click"
+                                                         Content="LaserJet"
+                                                         GroupName="SymSetMap" />
+                                            <RadioButton Name="rbSymSetMapBoth"
+                                                         Height="16"
+                                                         Margin="200,0,0,0"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Top"
+                                                         Click="rbSymSetMapBoth_Click"
+                                                         Content="Both"
+                                                         GroupName="SymSetMap" />
+
+                                            <Label Name="lbMapComment1"
+                                                   Width="255"
+                                                   Height="25"
+                                                   Margin="5,25,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Mapping of some sets may be truncated in" />
+                                            <Label Name="lbMapComment2"
+                                                   Width="255"
+                                                   Height="25"
+                                                   Margin="5,40,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="the display, but will be complete in the" />
+                                            <Label Name="lbMapComment3"
+                                                   Width="255"
+                                                   Height="25"
+                                                   Margin="5,55,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="saved report" />
+                                        </Grid>
+                                    </GroupBox>
+
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabFonts" Focusable="False">
+                        <Grid>
+                            <GroupBox Name="grpFontsOptions"
+                                      Width="280"
+                                      Height="150"
+                                      Margin="5,15,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Header="Options:">
+                                <Grid>
+                                    <CheckBox Name="chkFontOptMap"
+                                              Height="16"
+                                              Margin="10,10,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Checked="chkFontOptMap_Checked"
+                                              Content="Show supported symbol sets"
+                                              IsChecked="False"
+                                              Unchecked="chkFontOptMap_Unchecked" />
+
+                                    <GroupBox Name="grpFontMapData"
+                                              Width="260"
+                                              Height="80"
+                                              Margin="5,25,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Header="">
+                                        <Grid>
+                                            <Label Name="lbFontMapComment1"
+                                                   Width="255"
+                                                   Height="25"
+                                                   Margin="5,5,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="The symbol set lists shown are not definitive." />
+                                            <Label Name="lbFontMapComment2"
+                                                   Width="255"
+                                                   Height="25"
+                                                   Margin="5,20,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="They are the most probable values, based" />
+                                            <Label Name="lbFontMapComment3"
+                                                   Width="255"
+                                                   Height="25"
+                                                   Margin="5,35,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="on those found on modern devices." />
+                                        </Grid>
+                                    </GroupBox>
+
+                                </Grid>
+                            </GroupBox>
+
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabPaperSizes" Focusable="False">
+                        <Grid />
+                    </TabItem>
+
+                    <TabItem Name="tabPrescribeCmds" Focusable="False">
+                        <Grid />
+                    </TabItem>
+
+                </TabControl>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="grpReply"
+                  Width="750"
+                  Height="480"
+                  Margin="0,275,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Details:">
+            <Grid Name="Display" ShowGridLines="False">
+                <DataGrid Name="dgSeq"
+                          Width="720"
+                          Height="450"
+                          Margin="10,5,5,10"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          AutoGenerateColumns="True"
+                          FontFamily="Courier New"
+                          GridLinesVisibility="None"
+                          IsReadOnly="True"
+                          SelectionUnit="FullRow" />
+            </Grid>
+        </GroupBox>
+
+        <Button Name="btnGenerate"
+                Width="250"
+                Height="40"
+                Margin="450,100,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="btnGenerate_Click"
+                Content="Display data"
+                Style="{StaticResource PrimaryButton}" />
+
+        <Button Name="btnSaveReport"
+                Width="250"
+                Height="40"
+                Margin="450,150,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="btnSaveReport_Click"
+                Content="Save report"
+                Style="{StaticResource PrimaryButton}" />
+
+        <Label Name="lbItemCount"
+               Width="80"
+               Height="25"
+               Margin="445,230,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Item count:" />
+        <TextBox Name="txtCount"
+                 Width="38"
+                 Height="22"
+                 Margin="520,235,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top" />
+    </Grid>
+</Window>

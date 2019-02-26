@@ -1,0 +1,191 @@
+﻿<Application x:Class="PCLParaphernalia.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Startup="App_Startup">
+    <Application.Resources>
+
+        <!--  Style = PrimaryButton  -->
+
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
+                              ClipToBounds="True">
+
+                            <!--  Outer Rectangle with rounded corners.  -->
+                            <Rectangle x:Name="outerRectangle"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="Transparent"
+                                       RadiusX="10"
+                                       RadiusY="10"
+                                       Stroke="{TemplateBinding Background}"
+                                       StrokeThickness="3" />
+
+                            <!--  Inner Rectangle with rounded corners.  -->
+                            <Rectangle x:Name="innerRectangle"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{TemplateBinding Background}"
+                                       RadiusX="10"
+                                       RadiusY="10"
+                                       Stroke="Transparent"
+                                       StrokeThickness="10" />
+
+                            <!--  Present Content (text) of the button.  -->
+                            <DockPanel Name="myContentPresenterDockPanel">
+                                <ContentPresenter x:Name="myContentPresenter"
+                                                  Margin="2"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Content="{TemplateBinding Content}"
+                                                  TextBlock.Foreground="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}" />
+                            </DockPanel>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="outerRectangle"
+                                        Property="Rectangle.Stroke"
+                                        Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!--  Style = SecondaryButton  -->
+
+        <Style x:Key="SecondaryButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
+                              ClipToBounds="True">
+
+                            <!--  Outer Rectangle with rounded corners.  -->
+                            <Rectangle x:Name="outerRectangle"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="Transparent"
+                                       RadiusX="4"
+                                       RadiusY="4"
+                                       Stroke="{TemplateBinding Background}"
+                                       StrokeThickness="3" />
+
+                            <!--  Inner Rectangle with rounded corners.  -->
+                            <Rectangle x:Name="innerRectangle"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{TemplateBinding Background}"
+                                       RadiusX="4"
+                                       RadiusY="4"
+                                       Stroke="Transparent"
+                                       StrokeThickness="10" />
+
+                            <!--  Present Content (text) of the button.  -->
+                            <DockPanel Name="myContentPresenterDockPanel">
+                                <ContentPresenter x:Name="myContentPresenter"
+                                                  Margin="2"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Content="{TemplateBinding Content}"
+                                                  TextBlock.Foreground="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}" />
+                            </DockPanel>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="outerRectangle"
+                                        Property="Rectangle.Stroke"
+                                        Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SecondaryButtonTest" TargetType="Button">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <!--
+                        <Setter Property ="Rectangle.Fill" TargetName="innerRectangle"
+                        Value="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" />
+                    -->
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <!--  Style = ToggleButton  -->
+
+        <Style x:Key="ToggleButton" TargetType="ToggleButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
+                              ClipToBounds="True">
+
+                            <!--  Inner Rectangle  -->
+                            <Rectangle x:Name="innerRectangle"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="White"
+                                       Stroke="Gray"
+                                       StrokeThickness="1" />
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="innerRectangle"
+                                        Property="Rectangle.Stroke"
+                                        Value="{DynamicResource {x:Static SystemColors.InactiveBorderColor}}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="innerRectangle" Property="Fill" Value="{x:Static SystemColors.HighlightBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>

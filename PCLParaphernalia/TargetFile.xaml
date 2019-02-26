@@ -1,0 +1,162 @@
+﻿<Window
+    x:Class="PCLParaphernalia.TargetFile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Target File"
+    Width="725"
+    Height="300">
+    <Grid>
+        <Slider
+            x:Name="zoomSlider"
+            Width="80"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            AutoToolTipPlacement="BottomRight"
+            AutoToolTipPrecision="2"
+            IsMoveToPointEnabled="True"
+            IsSnapToTickEnabled="True"
+            Maximum="2"
+            Minimum="0.4"
+            SelectionEnd="0"
+            SelectionStart="0"
+            SmallChange="0.05"
+            TickFrequency="0.2"
+            TickPlacement="Both"
+            ToolTip="Determines the UI scale factor."
+            Visibility="Hidden"
+            Value="1" />
+
+        <DockPanel
+            Name="all"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+
+            <ScrollViewer
+                Margin="0,0,0,0"
+                HorizontalScrollBarVisibility="Auto"
+                VerticalScrollBarVisibility="Auto">
+
+                <DockPanel
+                    Name="resizeable"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    DockPanel.Dock="Top">
+
+                    <DockPanel.LayoutTransform>
+                        <ScaleTransform
+                            CenterX="0"
+                            CenterY="0"
+                            ScaleX="{Binding ElementName=zoomSlider, Path=Value}"
+                            ScaleY="{Binding ElementName=zoomSlider, Path=Value}" />
+                    </DockPanel.LayoutTransform>
+
+                    <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+
+                        <GroupBox
+                            Name="grpToolId"
+                            Height="60"
+                            Margin="10,10,10,0"
+                            VerticalAlignment="Top"
+                            BorderThickness="3"
+                            DockPanel.Dock="Top"
+                            Header="Current tool data:">
+                            <Grid>
+                                <TextBox
+                                    Name="txtCrntTool"
+                                    Width="240"
+                                    Height="25"
+                                    Margin="15,5,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    VerticalContentAlignment="Center"
+                                    IsEnabled="False" />
+                                <TextBox
+                                    Name="txtCrntPDL"
+                                    Width="80"
+                                    Height="25"
+                                    Margin="285,5,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    VerticalContentAlignment="Center"
+                                    IsEnabled="False" />
+                                <Label
+                                    Name="lbFileNA"
+                                    Width="300"
+                                    Height="25"
+                                    Margin="380,5,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Content="Target print job file capture is not relevant for this tool" />
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox
+                            Name="grpOpFile"
+                            Height="80"
+                            Margin="10,10,10,0"
+                            VerticalAlignment="Top"
+                            BorderThickness="3"
+                            DockPanel.Dock="Top"
+                            Header="Capture file:">
+                            <Grid>
+                                <TextBox
+                                    Name="txtOpFilename"
+                                    Width="580"
+                                    Height="25"
+                                    Margin="15,15,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    VerticalContentAlignment="Center"
+                                    LostFocus="txtOpFilename_LostFocus" />
+                                <Button
+                                    Name="btnOpFilenameBrowse"
+                                    Grid.Column="1"
+                                    Width="60"
+                                    Height="25"
+                                    Margin="600,15,10,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Click="btnOpFilenameBrowse_Click"
+                                    Content="browse ..."
+                                    Style="{StaticResource SecondaryButton}" />
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox
+                            Name="grpButtons"
+                            Width="400"
+                            Margin="10,15,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            BorderThickness="0"
+                            DockPanel.Dock="Bottom"
+                            Header=" ">
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Button
+                                    Name="btnOK"
+                                    Width="100"
+                                    Height="30"
+                                    Margin="10,0,10,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Stretch"
+                                    Click="btnOK_Click"
+                                    Content="OK"
+                                    Style="{StaticResource SecondaryButton}" />
+                                <Button
+                                    Name="btnCancel"
+                                    Width="100"
+                                    Height="30"
+                                    Margin="10,0,10,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Stretch"
+                                    Click="btnCancel_Click"
+                                    Content="Cancel"
+                                    Style="{StaticResource SecondaryButton}" />
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </DockPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AFDDD5FF-9956-47DB-9F70-17174CD24A39}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PCLParaphernalia</RootNamespace>
+    <AssemblyName>PCLParaphernalia</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>true</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.pclparaphernalia.eu/downloads/publish/</InstallUrl>
+    <SupportUrl>http://www.pclparaphernalia.eu/contact.html</SupportUrl>
+    <ProductName>PCL Paraphernalia</ProductName>
+    <PublisherName>PCL Paraphernalia</PublisherName>
+    <SuiteName>PCL Paraphernalia</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>3.2.1.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Internet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>PCLParaphernalia.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>0E2B6B9C712500DA13288C0F612531E8D09B5FAF</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PCLParaphernalia_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="HPGL2Command.cs" />
+    <Compile Include="HPGL2Commands.cs" />
+    <Compile Include="HPGL2ControlCode.cs" />
+    <Compile Include="HPGL2ControlCodes.cs" />
+    <Compile Include="MainFormData.cs" />
+    <Compile Include="PCLCharCollection.cs" />
+    <Compile Include="PCLCharCollections.cs" />
+    <Compile Include="PCLCharCollItem.cs" />
+    <Compile Include="PCLCharCollItems.cs" />
+    <Compile Include="PCLComplexSeq.cs" />
+    <Compile Include="PCLControlCode.cs" />
+    <Compile Include="PCLControlCodes.cs" />
+    <Compile Include="PCLDownloadMacro.cs" />
+    <Compile Include="PCLDownloadSymSet.cs" />
+    <Compile Include="PCLLogicalOperation.cs" />
+    <Compile Include="PCLLogicalOperations.cs" />
+    <Compile Include="PCLPalette.cs" />
+    <Compile Include="PCLPalettes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PCLPatternDef.cs" />
+    <Compile Include="PCLPatternDefs.cs" />
+    <Compile Include="PCLPlexMode.cs" />
+    <Compile Include="PCLPlexModes.cs" />
+    <Compile Include="PCLSimpleSeq.cs" />
+    <Compile Include="PCLComplexSeqs.cs" />
+    <Compile Include="PCLSimpleSeqs.cs" />
+    <Compile Include="PCLSymSetMaps_0D.cs" />
+    <Compile Include="PCLSymSetMaps_0H.cs" />
+    <Compile Include="PCLSymSetMaps_0I.cs" />
+    <Compile Include="PCLSymSetMaps_0N.cs" />
+    <Compile Include="PCLSymSetMaps_0S.cs" />
+    <Compile Include="PCLSymSetMaps_0U.cs" />
+    <Compile Include="PCLSymSetMaps_10G.cs" />
+    <Compile Include="PCLSymSetMaps_10J.cs" />
+    <Compile Include="PCLSymSetMaps_10N.cs" />
+    <Compile Include="PCLSymSetMaps_10U.cs" />
+    <Compile Include="PCLSymSetMaps_10V.cs" />
+    <Compile Include="PCLSymSetMaps_11N.cs" />
+    <Compile Include="PCLSymSetMaps_11U.cs" />
+    <Compile Include="PCLSymSetMaps_12G.cs" />
+    <Compile Include="PCLSymSetMaps_12J.cs" />
+    <Compile Include="PCLSymSetMaps_12N.cs" />
+    <Compile Include="PCLSymSetMaps_12U.cs" />
+    <Compile Include="PCLSymSetMaps_13U.cs" />
+    <Compile Include="PCLSymSetMaps_14R.cs" />
+    <Compile Include="PCLSymSetMaps_15H.cs" />
+    <Compile Include="PCLSymSetMaps_15U.cs" />
+    <Compile Include="PCLSymSetMaps_17U.cs" />
+    <Compile Include="PCLSymSetMaps_19L.cs" />
+    <Compile Include="PCLSymSetMaps_19U.cs" />
+    <Compile Include="PCLSymSetMaps_1E.cs" />
+    <Compile Include="PCLSymSetMaps_1F.cs" />
+    <Compile Include="PCLSymSetMaps_1G.cs" />
+    <Compile Include="PCLSymSetMaps_1T.cs" />
+    <Compile Include="PCLSymSetMaps_1U.cs" />
+    <Compile Include="PCLSymSetMaps_26U.cs" />
+    <Compile Include="PCLSymSetMaps_2N.cs" />
+    <Compile Include="PCLSymSetMaps_2S.cs" />
+    <Compile Include="PCLSymSetMaps_3N.cs" />
+    <Compile Include="PCLSymSetMaps_3R.cs" />
+    <Compile Include="PCLSymSetMaps_4N.cs" />
+    <Compile Include="PCLSymSetMaps_4U.cs" />
+    <Compile Include="PCLSymSetMaps_5M.cs" />
+    <Compile Include="PCLSymSetMaps_5N.cs" />
+    <Compile Include="PCLSymSetMaps_5T.cs" />
+    <Compile Include="PCLSymSetMaps_6J.cs" />
+    <Compile Include="PCLSymSetMaps_6N.cs" />
+    <Compile Include="PCLSymSetMaps_7H.cs" />
+    <Compile Include="PCLSymSetMaps_7J.cs" />
+    <Compile Include="PCLSymSetMaps_8G.cs" />
+    <Compile Include="PCLSymSetMaps_8H.cs" />
+    <Compile Include="PCLSymSetMaps_8M.cs" />
+    <Compile Include="PCLSymSetMaps_8U.cs" />
+    <Compile Include="PCLSymSetMaps_8V.cs" />
+    <Compile Include="PCLSymSetMaps_9E.cs" />
+    <Compile Include="PCLSymSetMaps_9G.cs" />
+    <Compile Include="PCLSymSetMaps_9J.cs" />
+    <Compile Include="PCLSymSetMaps_9N.cs" />
+    <Compile Include="PCLSymSetMaps_9R.cs" />
+    <Compile Include="PCLSymSetMaps_9T.cs" />
+    <Compile Include="PCLSymSetMaps_9U.cs" />
+    <Compile Include="PCLSymSetMaps_9V.cs" />
+    <Compile Include="PCLSymSetMaps_x1001T.cs" />
+    <Compile Include="PCLSymSetMaps_x901T.cs" />
+    <Compile Include="PCLSymSetType.cs" />
+    <Compile Include="PCLSymSetTypes.cs" />
+    <Compile Include="PCLSymSetMap.cs" />
+    <Compile Include="PCLSymSetMaps.cs" />
+    <Compile Include="PCLSymSetMaps_x1018C.cs" />
+    <Compile Include="PCLSymSetMaps_x1018T.cs" />
+    <Compile Include="PCLSymSetMaps_x1020C.cs" />
+    <Compile Include="PCLSymSetMaps_x1019K.cs" />
+    <Compile Include="PCLSymSetMapsSpecial.cs" />
+    <Compile Include="PCLTextParsingMethod.cs" />
+    <Compile Include="PCLTextParsingMethods.cs" />
+    <Compile Include="PCLXLAttrDefiner.cs" />
+    <Compile Include="PCLXLAttrDefiners.cs" />
+    <Compile Include="PCLXLAttrEnum.cs" />
+    <Compile Include="PCLXLAttrEnums.cs" />
+    <Compile Include="PCLXLAttribute.cs" />
+    <Compile Include="PCLXLAttributes.cs" />
+    <Compile Include="PCLXLDataType.cs" />
+    <Compile Include="PCLXLDataTypes.cs" />
+    <Compile Include="PCLXLEmbedDataDef.cs" />
+    <Compile Include="PCLXLEmbedDataDefs.cs" />
+    <Compile Include="PCLXLOperator.cs" />
+    <Compile Include="PCLXLOperators.cs" />
+    <Compile Include="PCLXLDownloadStream.cs" />
+    <Compile Include="PCLXLPalette.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PCLXLPalettes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PCLXLWhitespace.cs" />
+    <Compile Include="PCLXLWhitespaces.cs" />
+    <Compile Include="PMLAction.cs" />
+    <Compile Include="PMLActions.cs" />
+    <Compile Include="PMLDataType.cs" />
+    <Compile Include="PMLDataTypes.cs" />
+    <Compile Include="PMLOutcome.cs" />
+    <Compile Include="PMLOutcomes.cs" />
+    <Compile Include="PrescribeCommand.cs" />
+    <Compile Include="PrescribeCommands.cs" />
+    <Compile Include="PrnParse.cs" />
+    <Compile Include="PrnParseCommon.cs" />
+    <Compile Include="PrnParseConstants.cs" />
+    <Compile Include="PrnParseData.cs" />
+    <Compile Include="PrnParseDataUTF8.cs" />
+    <Compile Include="PrnParseLinkData.cs" />
+    <Compile Include="PrnParseFontCharPCL.cs" />
+    <Compile Include="PrnParseFontCharPCLXL.cs" />
+    <Compile Include="PrnParseFontHddrPCLXL.cs" />
+    <Compile Include="PrnParseHPGL2.cs" />
+    <Compile Include="PrnParseMakeOvl.cs" />
+    <Compile Include="PrnParsePCL.cs" />
+    <Compile Include="PrnParseFontSegs.cs" />
+    <Compile Include="PrnParseFontHddrPCL.cs" />
+    <Compile Include="PrnParsePCLBinary.cs" />
+    <Compile Include="PrnParsePCLXL.cs" />
+    <Compile Include="PrnParsePCLXLElementMetrics.cs" />
+    <Compile Include="PrnParsePJL.cs" />
+    <Compile Include="PrnParsePML.cs" />
+    <Compile Include="PrnParsePrescribe.cs" />
+    <Compile Include="PrnParseRowType.cs" />
+    <Compile Include="PrnParseRowTypes.cs" />
+    <Compile Include="PrnView.cs" />
+    <Compile Include="Helper_RawPrinter.cs" />
+    <Compile Include="Helper_RegKey.cs" />
+    <Compile Include="ReportCore.cs" />
+    <Compile Include="TargetFile.xaml.cs">
+      <DependentUpon>TargetFile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TargetNetPrintConfig.xaml.cs">
+      <DependentUpon>TargetNetPrintConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TargetRptFile.xaml.cs">
+      <DependentUpon>TargetRptFile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TargetWinPrint.cs" />
+    <Compile Include="TargetWinPrintConfig.xaml.cs">
+      <DependentUpon>TargetWinPrintConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolCommonData.cs" />
+    <Compile Include="ToolCommonFunctions.cs" />
+    <Compile Include="ToolCommonPersist.cs" />
+    <Compile Include="ToolFormSample.xaml.cs">
+      <DependentUpon>ToolFormSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolFormSamplePCL.cs" />
+    <Compile Include="ToolFormSamplePCLX.cs" />
+    <Compile Include="ToolFormSamplePersist.cs" />
+    <Compile Include="ToolMakeOverlayReport.cs" />
+    <Compile Include="ToolMiscSamples.xaml.cs">
+      <DependentUpon>ToolMiscSamples.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolMiscSamplesActColour.xaml.cs" />
+    <Compile Include="ToolMiscSamplesActColourGrayPCLXL.cs" />
+    <Compile Include="ToolMiscSamplesActColourImagingPCL.cs" />
+    <Compile Include="ToolMiscSamplesActColourRGBPCLXL.cs" />
+    <Compile Include="ToolMiscSamplesActColourSimplePCL.cs" />
+    <Compile Include="ToolMiscSamplesActLogOper.xaml.cs" />
+    <Compile Include="ToolMiscSamplesActLogOperPCL.cs" />
+    <Compile Include="ToolMiscSamplesActLogOperPCLXL.cs" />
+    <Compile Include="ToolMiscSamplesActPatternXHatchPCL.cs" />
+    <Compile Include="ToolMiscSamplesActPatternXHatchPCLXL.cs" />
+    <Compile Include="ToolMiscSamplesActTxtMod.xaml.cs" />
+    <Compile Include="ToolMiscSamplesActTxtModChrPCL.cs" />
+    <Compile Include="ToolMiscSamplesActTxtModChrPCLXL.cs" />
+    <Compile Include="ToolMiscSamplesActLogPage.xaml.cs" />
+    <Compile Include="ToolMiscSamplesActPattern.xaml.cs" />
+    <Compile Include="ToolMiscSamplesActPatternShadePCL.cs" />
+    <Compile Include="ToolMiscSamplesActPatternShadePCLXL.cs" />
+    <Compile Include="ToolMiscSamplesActLogPagePCL.cs" />
+    <Compile Include="ToolMiscSamplesActTxtModPatPCL.cs" />
+    <Compile Include="ToolMiscSamplesActTxtModPatPCLXL.cs" />
+    <Compile Include="ToolMiscSamplesActTxtModRotPCL.cs" />
+    <Compile Include="ToolMiscSamplesActTxtModRotPCLXL.cs" />
+    <Compile Include="ToolMiscSamplesActUnicode.xaml.cs" />
+    <Compile Include="ToolMiscSamplesPersist.cs" />
+    <Compile Include="ToolMiscSamplesActUnicodePCL.cs" />
+    <Compile Include="ToolMiscSamplesActUnicodePCLXL.cs" />
+    <Compile Include="ToolPatternGenerate.xaml.cs">
+      <DependentUpon>ToolPatternGenerate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolPrintArea.xaml.cs">
+      <DependentUpon>ToolPrintArea.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ToolPrnAnalyseReport.cs" />
+    <Compile Include="ToolSoftFontGenerate.xaml.cs">
+      <DependentUpon>ToolSoftFontGenerate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolPrnAnalyse.xaml.cs">
+      <DependentUpon>ToolPrnAnalyse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrnParseOptions.cs" />
+    <Compile Include="ToolPrnAnalysePersist.cs" />
+    <Compile Include="ToolMakeOverlay.xaml.cs">
+      <DependentUpon>ToolMakeOverlay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolMakeOverlayPersist.cs" />
+    <Compile Include="ToolPrintLang.xaml.cs">
+      <DependentUpon>ToolPrintLang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolPrintLangPersist.cs" />
+    <Compile Include="ToolPrintLangReport.cs" />
+    <Compile Include="ToolPrnPrint.xaml.cs">
+      <DependentUpon>ToolPrnPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolPrnPrintPersist.cs" />
+    <Compile Include="ToolSoftFontGenLog.cs" />
+    <Compile Include="ToolSoftFontGenPCL.cs" />
+    <Compile Include="ToolSoftFontGenPCLXL.cs" />
+    <Compile Include="ToolSoftFontGenPCLCommon.cs" />
+    <Compile Include="ToolSoftFontGenPersist.cs" />
+    <Compile Include="ToolSoftFontGenReport.cs" />
+    <Compile Include="ToolSoftFontGenTTF.cs" />
+    <Compile Include="ToolSoftFontGenTTFTable.cs" />
+    <Compile Include="ToolStatusReadbackPJLFS.cs" />
+    <Compile Include="ToolStatusReadbackReport.cs" />
+    <Compile Include="ToolSymbolSetGenerate.xaml.cs">
+      <DependentUpon>ToolSymbolSetGenerate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolSymbolSetGenPCL.cs" />
+    <Compile Include="ToolSymbolSetGenPersist.cs" />
+    <Compile Include="ToolSymbolSetGenReport.cs" />
+    <Compile Include="ToolTrayMapPersist.cs" />
+    <Compile Include="ToolPrnAnalyseOptDlg.xaml.cs">
+      <DependentUpon>ToolPrnAnalyseOptDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolXXXDiags.xaml.cs">
+      <DependentUpon>ToolXXXDiags.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UnicodeBlock.cs" />
+    <Compile Include="UnicodeBlocks.cs" />
+    <Compile Include="WorkFolder.xaml.cs">
+      <DependentUpon>WorkFolder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper_WPFFocusFix.cs" />
+    <Page Include="TargetFile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TargetNetPrintConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TargetRptFile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TargetWinPrintConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolFormSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolMiscSamples.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolPatternGenerate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolPrintArea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToolSoftFontGenerate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolPrnAnalyse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolImageBitmap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolMakeOverlay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolFontSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolStatusReadback.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolPrintLang.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolPrnPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolSymbolSetGenerate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolTrayMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ToolPrnAnalyseOptDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToolXXXDiags.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFolder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PCLDownloadFont.cs" />
+    <Compile Include="PCLXLDownloadFont.cs" />
+    <Compile Include="TargetPersist.cs" />
+    <Compile Include="ToolImageBitmapPersist.cs" />
+    <Compile Include="ToolFontSamplePersist.cs" />
+    <Compile Include="ToolPrintAreaPCL.cs" />
+    <Compile Include="ToolPrintAreaPCLXL.cs" />
+    <Compile Include="TEMP_scratchPad.cs" />
+    <Compile Include="ToolImageBitmap.xaml.cs">
+      <DependentUpon>ToolImageBitmap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolImageBitmapCore.cs" />
+    <Compile Include="ToolImageBitmapPCL.cs" />
+    <Compile Include="ToolImageBitmapPCLXL.cs" />
+    <Compile Include="ToolFontSamplePCL.cs" />
+    <Compile Include="ToolFontSamplePCLXL.cs" />
+    <Compile Include="PCLWriter.cs" />
+    <Compile Include="PCLEntityType.cs" />
+    <Compile Include="PCLEntityTypes.cs" />
+    <Compile Include="PCLFont.cs" />
+    <Compile Include="PCLFonts.cs" />
+    <Compile Include="PCLLocationType.cs" />
+    <Compile Include="PCLLocationTypes.cs" />
+    <Compile Include="PCLOrientation.cs" />
+    <Compile Include="PCLOrientations.cs" />
+    <Compile Include="PCLPaperSize.cs" />
+    <Compile Include="PCLPaperSizes.cs" />
+    <Compile Include="PCLPaperType.cs" />
+    <Compile Include="PCLPaperTypes.cs" />
+    <Compile Include="PCLRasterResolution.cs" />
+    <Compile Include="PCLRasterResolutions.cs" />
+    <Compile Include="PCLSymbolSet.cs" />
+    <Compile Include="PCLSymbolSets.cs" />
+    <Compile Include="PCLTrayData.cs" />
+    <Compile Include="PCLTrayDatas.cs" />
+    <Compile Include="PJLCategories.cs" />
+    <Compile Include="PJLCategory.cs" />
+    <Compile Include="PJLCommand.cs" />
+    <Compile Include="PJLCommands.cs" />
+    <Compile Include="PJLVariable.cs" />
+    <Compile Include="PJLVariables.cs" />
+    <Compile Include="ToolPrintAreaPersist.cs" />
+    <Compile Include="ToolStatusReadbackPCL.cs" />
+    <Compile Include="ToolStatusReadbackPersist.cs" />
+    <Compile Include="ToolStatusReadbackPJL.cs" />
+    <Compile Include="TargetNetPrint.cs" />
+    <Compile Include="ToolTrayMapPCL.cs" />
+    <Compile Include="ToolTrayMapPCLXL.cs" />
+    <Compile Include="PCLXLWriter.cs" />
+    <Compile Include="MainFormPersist.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="TargetCore.cs" />
+    <Compile Include="ToolFontSample.xaml.cs">
+      <DependentUpon>ToolFontSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.xaml.cs">
+      <DependentUpon>MainForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolStatusReadback.xaml.cs">
+      <DependentUpon>ToolStatusReadback.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolTrayMap.xaml.cs">
+      <DependentUpon>ToolTrayMap.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <Content Include="PCLParaphernalia.chm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PCLParaphernalia.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if /I "$(ConfigurationName)" == "Release" Eazfuscator.NET.exe "$(TargetPath)" --msbuild-project-path "$(ProjectPath)" --msbuild-project-configuration "$(ConfigurationName)" --msbuild-project-platform "$(PlatformName)" --msbuild-solution-path "$(SolutionPath)" -n --newline-flush -v 3.3</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,1142 @@
+﻿<Window x:Class="PCLParaphernalia.ToolSoftFontGenerate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowSoftFontGenerate"
+        Width="760"
+        Height="780">
+    <Grid>
+        <Label Name="lbTitle"
+               Width="250"
+               Height="35"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="PCL Soft Font Generate utility:"
+               FontSize="18" />
+
+        <GroupBox Name="grpTTFFontData"
+                  Width="540"
+                  Height="115"
+                  Margin="0,35,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Donor TrueType / OpenType Font:">
+            <Grid>
+                <Label Name="lbTTFFont"
+                       Width="90"
+                       Height="25"
+                       Margin="15,10,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Font name:" />
+                <Label Name="lbTTCFont"
+                       Width="90"
+                       Height="25"
+                       Margin="15,35,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Collection unit:" />
+                <Label Name="lbTTFFontFile"
+                       Width="90"
+                       Height="25"
+                       Margin="15,60,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Font file name:" />
+                <ComboBox Name="cbTTFName"
+                          Width="200"
+                          Height="23"
+                          Margin="120,15,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          SelectionChanged="cbTTFName_SelectionChanged" />
+                <ComboBox Name="cbTTCName"
+                          Width="200"
+                          Height="23"
+                          Margin="120,40,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          SelectionChanged="cbTTCName_SelectionChanged" />
+                <TextBox Name="txtTTFFile"
+                         Width="330"
+                         Height="20"
+                         Margin="120,65,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         VerticalContentAlignment="Bottom"
+                         FontFamily="Lucida Console"
+                         FontSize="12" />
+                <Button Name="btnTTFFontFileBrowse"
+                        Width="60"
+                        Height="20"
+                        Margin="455,65,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="btnTTFFontFileBrowse_Click"
+                        Content="browse ..."
+                        Style="{StaticResource SecondaryButton}" />
+
+                <GroupBox Name="grpPCLTTreatment"
+                          Width="120"
+                          Height="60"
+                          Margin="400,0,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          BorderThickness="2"
+                          Header="PCLT treatment:">
+                    <Grid>
+                        <RadioButton Name="rbPCLTIgnore"
+                                     Height="16"
+                                     Margin="0,2,0,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Click="rbPCLTIgnore_Click"
+                                     Content="Ignore"
+                                     GroupName="PCLTTreatment" />
+                        <RadioButton Name="rbPCLTUse"
+                                     Height="16"
+                                     Margin="65,2,0,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Click="rbPCLTUse_Click"
+                                     Content="Use"
+                                     GroupName="PCLTTreatment"
+                                     IsChecked="True" />
+                        <Label Name="lbPCLTNotPresent"
+                               Width="100"
+                               Height="25"
+                               Margin="0,15,0,0"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Content="Table not present" />
+                    </Grid>
+                </GroupBox>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="grpOptions"
+                  Width="200"
+                  Height="115"
+                  Margin="545,35,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Options:">
+            <Grid>
+
+                <CheckBox Name="chkLogVerbose"
+                          Height="16"
+                          Margin="10,10,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          Checked="chkLogVerbose_Checked"
+                          Content="Log diagnostics"
+                          Unchecked="chkLogVerbose_Unchecked" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="grpTargetMapping"
+                  Width="500"
+                  Height="135"
+                  Margin="0,145,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Mapping:">
+            <Grid>
+                <GroupBox Name="grpBinding"
+                          Width="90"
+                          Height="100"
+                          Margin="5,0,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          BorderThickness="2"
+                          Header="Binding:">
+                    <Grid>
+                        <RadioButton Name="rbSymSetBound"
+                                     Grid.ColumnSpan="2"
+                                     Height="16"
+                                     Margin="0,5,0,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Click="rbSymSetBound_Click"
+                                     Content="Bound"
+                                     GroupName="SymSetBinding"
+                                     IsChecked="True" />
+                        <RadioButton Name="rbSymSetUnbound"
+                                     Grid.ColumnSpan="2"
+                                     Height="16"
+                                     Margin="0,30,0,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Click="rbSymSetUnbound_Click"
+                                     Content="Unbound"
+                                     GroupName="SymSetBinding" />
+                        <RadioButton Name="rbSymSetUserSet"
+                                     Grid.ColumnSpan="2"
+                                     Height="16"
+                                     Margin="0,55,0,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Click="rbSymSetUserSet_Click"
+                                     Content="User set"
+                                     GroupName="SymSetBinding" />
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Name="grpSymSet"
+                          Width="385"
+                          Height="65"
+                          Margin="100,0,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          BorderThickness="2"
+                          Header="Character Set:">
+                    <Grid>
+                        <ComboBox Name="cbSymSet"
+                                  Width="185"
+                                  Height="23"
+                                  Margin="5,5,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  IsEnabled="True"
+                                  SelectionChanged="cbSymSet_SelectionChanged" />
+
+                        <Label Name="lbSymSetNo"
+                               Width="45"
+                               Height="25"
+                               Margin="195,-2,0,0"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Content="Kind1:" />
+                        <TextBox Name="txtSymSetNo"
+                                 Width="45"
+                                 Height="20"
+                                 Margin="235,0,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 HorizontalContentAlignment="Right"
+                                 VerticalContentAlignment="Bottom"
+                                 FontFamily="Lucida Console"
+                                 FontSize="12"
+                                 IsEnabled="False" />
+
+                        <Label Name="lbSymSetId"
+                               Width="25"
+                               Height="25"
+                               Margin="280,-2,0,0"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Content="ID:" />
+                        <TextBox Name="txtSymSetIdNum"
+                                 Width="40"
+                                 Height="20"
+                                 Margin="305,0,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 HorizontalContentAlignment="Right"
+                                 VerticalContentAlignment="Bottom"
+                                 FontFamily="Lucida Console"
+                                 FontSize="12"
+                                 IsEnabled="False" />
+                        <TextBox Name="txtSymSetIdAlpha"
+                                 Width="20"
+                                 Height="20"
+                                 Margin="350,0,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 VerticalContentAlignment="Bottom"
+                                 FontFamily="Lucida Console"
+                                 FontSize="12"
+                                 IsEnabled="False" />
+
+                        <Label Name="lbSymSetType"
+                               Width="45"
+                               Height="25"
+                               Margin="195,18,0,0"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Content="Type:" />
+                        <TextBox Name="txtSymSetType"
+                                 Width="95"
+                                 Height="20"
+                                 Margin="235,22,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 HorizontalContentAlignment="Left"
+                                 VerticalContentAlignment="Bottom"
+                                 FontFamily="Lucida Console"
+                                 FontSize="12"
+                                 IsEnabled="False" />
+                    </Grid>
+                </GroupBox>
+
+                <Label Name="lbSymSetSymbol"
+                       Width="180"
+                       Height="25"
+                       Margin="105,25,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="TrueType 'symbol' encoding"
+                       Visibility="Visible" />
+
+                <GroupBox Name="grpSymSetMapType"
+                          Width="210"
+                          Height="45"
+                          Margin="100,60,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          Header="Map type:">
+                    <Grid>
+                        <RadioButton Name="rbMapSymSetStd"
+                                     Height="16"
+                                     Margin="10,5,0,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Click="rbMapSymSetStd_Click"
+                                     Content="Strict"
+                                     GroupName="SymSetMap"
+                                     IsChecked="True" />
+                        <RadioButton Name="rbMapSymSetPCL"
+                                     Height="16"
+                                     Margin="80,5,0,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Click="rbMapSymSetPCL_Click"
+                                     Content="LaserJet"
+                                     GroupName="SymSetMap" />
+                    </Grid>
+                </GroupBox>
+
+
+                <GroupBox Name="grpSymSetFile"
+                          Width="385"
+                          Height="55"
+                          Margin="100,55,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          BorderThickness="2"
+                          Header="User-defined Symbol Set file:"
+                          Visibility="Hidden">
+                    <Grid>
+                        <TextBox Name="txtSymSetFile"
+                                 Width="300"
+                                 Height="20"
+                                 Margin="0,5,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 VerticalContentAlignment="Bottom"
+                                 FontFamily="Lucida Console"
+                                 FontSize="12"
+                                 LostFocus="txtSymSetFile_LostFocus" />
+                        <Button Name="btnSymSetFileBrowse"
+                                Width="60"
+                                Height="20"
+                                Margin="310,5,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Click="btnSymSetFileBrowse_Click"
+                                Content="browse ..."
+                                Style="{StaticResource SecondaryButton}" />
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+
+        <Button Name="btnReset"
+                Width="200"
+                Height="40"
+                Margin="510,160,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="btnReset_Click"
+                Content="Reset"
+                Style="{StaticResource PrimaryButton}"
+                Visibility="Hidden" />
+        <Button Name="btnTTFSelect"
+                Width="200"
+                Height="40"
+                Margin="510,160,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="btnTTFSelect_Click"
+                Content="Select donor font &amp; character set"
+                Style="{StaticResource PrimaryButton}" />
+        <Button Name="btnPCLGenerate"
+                Width="200"
+                Height="40"
+                Margin="510,200,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="btnPCLGenerate_Click"
+                Content="Generate soft font"
+                Style="{StaticResource PrimaryButton}" />
+        <Button Name="btnLogSave"
+                Width="200"
+                Height="40"
+                Margin="510,240,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="btnLogSave_Click"
+                Content="Save log"
+                Style="{StaticResource PrimaryButton}" />
+
+        <GroupBox Name="grpTargetFont"
+                  Width="750"
+                  Height="280"
+                  Margin="0,275,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Target soft font:">
+            <Grid>
+                <TabControl Name="tabDetails"
+                            Width="720"
+                            Height="240"
+                            Margin="0,10,0,0"
+                            VerticalAlignment="Top"
+                            IsEnabled="true"
+                            SelectionChanged="tabDetails_SelectionChanged"
+                            TabStripPlacement="Left">
+
+                    <TabItem Name="tabPCL"
+                             Header="PCL"
+                             IsEnabled="true">
+                        <Grid>
+                            <Label Name="lbPCLFontFile"
+                                   Width="120"
+                                   Height="25"
+                                   Margin="5,5,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Content="Font file name:" />
+                            <TextBox Name="txtPCLFontFile"
+                                     Width="450"
+                                     Height="20"
+                                     Margin="130,10,0,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     VerticalContentAlignment="Bottom"
+                                     FontFamily="Lucida Console"
+                                     FontSize="12"
+                                     LostFocus="txtPCLFontFile_LostFocus" />
+                            <Button Name="btnPCLFontFileBrowse"
+                                    Width="60"
+                                    Height="20"
+                                    Margin="600,10,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Click="btnPCLFontFileBrowse_Click"
+                                    Content="browse ..."
+                                    Style="{StaticResource SecondaryButton}" />
+
+                            <GroupBox Name="grpPCLFontHddr"
+                                      Width="655"
+                                      Height="205"
+                                      Margin="5,30,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="2"
+                                      Header="Font header:">
+                                <Grid>
+
+                                    <GroupBox Name="grpPCLHddrFSel"
+                                              Width="515"
+                                              Height="130"
+                                              Margin="5,0,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              BorderThickness="2"
+                                              Header="Font selection data:">
+                                        <Grid>
+
+                                            <Label Name="lbPCLSymSet"
+                                                   Width="90"
+                                                   Height="25"
+                                                   Margin="0,2,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Symbol Set:" />
+                                            <Label Name="lbPCLSymSetNo"
+                                                   Width="42"
+                                                   Height="25"
+                                                   Margin="85,2,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Kind1:" />
+                                            <TextBox Name="txtPCLSymSetNo"
+                                                     Width="45"
+                                                     Height="20"
+                                                     Margin="130,5,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Right"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     LostFocus="txtPCLSymSetNo_LostFocus"
+                                                     TextChanged="txtPCLSymSetNo_TextChanged" />
+
+                                            <Label Name="lbPCLSymSetId"
+                                                   Width="20"
+                                                   Height="25"
+                                                   Margin="180,2,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="=" />
+                                            <TextBox Name="txtPCLSymSetIdNum"
+                                                     Width="40"
+                                                     Height="20"
+                                                     Margin="205,5,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Right"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+
+                                            <TextBox Name="txtPCLSymSetIdAlpha"
+                                                     Width="20"
+                                                     Height="20"
+                                                     Margin="250,5,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+
+                                            <TextBox Name="txtPCLSymSetName"
+                                                     Width="195"
+                                                     Height="20"
+                                                     Margin="305,5,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Left"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="10"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+
+                                            <Label Name="lbPCLStyle"
+                                                   Width="90"
+                                                   Height="25"
+                                                   Margin="0,27,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Style:" />
+                                            <Label Name="lbPCLStyleNo"
+                                                   Width="42"
+                                                   Height="25"
+                                                   Margin="85,27,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="No.:" />
+                                            <TextBox Name="txtPCLStyleNo"
+                                                     Width="45"
+                                                     Height="20"
+                                                     Margin="130,30,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Right"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     LostFocus="txtPCLStyleNo_LostFocus"
+                                                     TextChanged="txtPCLStyleNo_TextChanged" />
+
+                                            <Label Name="lbPCLStyleDesc"
+                                                   Width="20"
+                                                   Height="25"
+                                                   Margin="180,27,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="=" />
+                                            <TextBox Name="txtPCLStylePosture"
+                                                     Width="70"
+                                                     Height="20"
+                                                     Margin="205,30,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Left"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="10"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+                                            <TextBox Name="txtPCLStyleWidth"
+                                                     Width="100"
+                                                     Height="20"
+                                                     Margin="280,30,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Left"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="10"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+                                            <TextBox Name="txtPCLStyleStructure"
+                                                     Width="115"
+                                                     Height="20"
+                                                     Margin="385,30,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Left"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="10"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+
+                                            <Label Name="lbPCLWeight"
+                                                   Width="90"
+                                                   Height="25"
+                                                   Margin="0,52,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Stroke Weight:" />
+                                            <Label Name="lbPCLWeightNo"
+                                                   Width="42"
+                                                   Height="25"
+                                                   Margin="85,52,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Value:" />
+                                            <TextBox Name="txtPCLWeightNo"
+                                                     Width="45"
+                                                     Height="20"
+                                                     Margin="130,55,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Right"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     LostFocus="txtPCLWeightNo_LostFocus"
+                                                     TextChanged="txtPCLWeightNo_TextChanged" />
+
+                                            <Label Name="lbPCLWeightDesc"
+                                                   Width="20"
+                                                   Height="25"
+                                                   Margin="180,52,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="=" />
+                                            <TextBox Name="txtPCLWeightDesc"
+                                                     Width="95"
+                                                     Height="20"
+                                                     Margin="205,55,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Left"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="10"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+
+                                            <Label Name="lbPCLTypeface"
+                                                   Width="90"
+                                                   Height="25"
+                                                   Margin="0,77,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Typeface:" />
+                                            <Label Name="lbPCLTypefaceNo"
+                                                   Width="42"
+                                                   Height="25"
+                                                   Margin="85,77,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="No.:" />
+                                            <TextBox Name="txtPCLTypefaceNo"
+                                                     Width="45"
+                                                     Height="20"
+                                                     Margin="130,80,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Right"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     LostFocus="txtPCLTypefaceNo_LostFocus"
+                                                     TextChanged="txtPCLTypefaceNo_TextChanged" />
+
+                                            <Label Name="lbPLC5TypefaceID"
+                                                   Width="20"
+                                                   Height="25"
+                                                   Margin="180,77,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="=" />
+                                            <TextBox Name="txtPCLTypefaceVendor"
+                                                     Width="20"
+                                                     Height="20"
+                                                     Margin="205,80,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Right"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+
+                                            <TextBox Name="txtPCLTypefaceBase"
+                                                     Width="40"
+                                                     Height="20"
+                                                     Margin="235,80,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Right"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+
+                                            <TextBox Name="txtPCLTypefaceName"
+                                                     Width="195"
+                                                     Height="20"
+                                                     Margin="305,80,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Left"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="10"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+                                        </Grid>
+                                    </GroupBox>
+
+                                    <GroupBox Name="grpPCLHddrFmt"
+                                              Width="120"
+                                              Height="80"
+                                              Margin="525,0,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              BorderThickness="2"
+                                              Header="Header format:">
+                                        <Grid>
+                                            <RadioButton Name="rbPCLHddrFmt15"
+                                                         Grid.ColumnSpan="2"
+                                                         Height="16"
+                                                         Margin="0,5,0,0"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Top"
+                                                         Click="rbPCLHddrFmt15_Click"
+                                                         Content="15 (TrueType)"
+                                                         GroupName="FormatPCL"
+                                                         IsChecked="True" />
+
+                                            <RadioButton Name="rbPCLHddrFmt16"
+                                                         Grid.ColumnSpan="2"
+                                                         Height="16"
+                                                         Margin="0,20,0,0"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Top"
+                                                         Click="rbPCLHddrFmt16_Click"
+                                                         Content="16 (Universal)"
+                                                         GroupName="FormatPCL" />
+
+                                            <CheckBox Name="chkPCLSegGTLast"
+                                                      Height="16"
+                                                      Margin="0,40,0,0"
+                                                      HorizontalAlignment="Left"
+                                                      VerticalAlignment="Top"
+                                                      Checked="chkPCLSegGTLast_Checked"
+                                                      Content="Segment GT last"
+                                                      Unchecked="chkPCLSegGTLast_Unchecked" />
+                                        </Grid>
+                                    </GroupBox>
+
+                                    <GroupBox Name="grpPCLCharComp"
+                                              Width="515"
+                                              Height="60"
+                                              Margin="5,125,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              BorderThickness="2"
+                                              Header="Character complement:">
+                                        <Grid>
+                                            <TextBlock Name="tblkPCLCharColls"
+                                                       Width="Auto"
+                                                       Height="20"
+                                                       Margin="7,-15,0,0"
+                                                       HorizontalAlignment="Left"
+                                                       Text="0x array value" />
+                                            <RadioButton Name="rbPCLCharCompAll"
+                                                         Height="16"
+                                                         Margin="5,20,0,0"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Top"
+                                                         Click="rbPCLCharCompAll_Click"
+                                                         Content="All"
+                                                         GroupName="PCLCharComp"
+                                                         IsChecked="True" />
+                                            <RadioButton Name="rbPCLCharCompSpecific"
+                                                         Height="16"
+                                                         Margin="55,20,0,0"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Top"
+                                                         Click="rbPCLCharCompSpecific_Click"
+                                                         Content="Specific"
+                                                         GroupName="PCLCharComp" />
+
+                                            <StackPanel Margin="1">
+                                                <ComboBox Name="cbPCLCharColls"
+                                                          Width="300"
+                                                          Margin="150,2,0,0"
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Top"
+                                                          ItemsSource="{Binding charColls}"
+                                                          SelectionChanged="cbPCLCharColl_SelectionChanged">
+                                                    <ComboBox.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <CheckBox Content="{Binding Desc}"
+                                                                      IsChecked="{Binding IsChecked,
+                                                                                          Mode=TwoWay}"
+                                                                      IsEnabled="{Binding IsEnabled}" />
+                                                        </DataTemplate>
+                                                    </ComboBox.ItemTemplate>
+                                                </ComboBox>
+                                                <TextBlock Name="tblkPCLCharCollsText"
+                                                           Width="Auto"
+                                                           Height="20"
+                                                           Margin="155,-20,0,0"
+                                                           HorizontalAlignment="Left"
+                                                           Text="Select supported collection(s):" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </GroupBox>
+
+                                    <GroupBox Name="grpPCLHddrVMetrics"
+                                              Width="120"
+                                              Height="60"
+                                              Margin="525,125,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              BorderThickness="2"
+                                              Header="Vertical metrics:">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="7*" />
+                                                <ColumnDefinition Width="20*" />
+                                            </Grid.ColumnDefinitions>
+                                            <CheckBox Name="chkPCLVMetrics"
+                                                      Grid.ColumnSpan="2"
+                                                      Height="16"
+                                                      Margin="5,10,0,0"
+                                                      HorizontalAlignment="Left"
+                                                      VerticalAlignment="Top"
+                                                      Checked="chkPCLVMetrics_Checked"
+                                                      Content="Write metrics"
+                                                      Unchecked="chkPCLVMetrics_Unchecked" />
+                                        </Grid>
+                                    </GroupBox>
+
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabPCLXL"
+                             Height="24"
+                             VerticalAlignment="Bottom"
+                             Header="PCLXL"
+                             IsEnabled="true">
+                        <Grid>
+                            <Label Name="lbPCLXLFontFile"
+                                   Width="120"
+                                   Height="25"
+                                   Margin="5,5,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Content="Font file name:" />
+                            <TextBox Name="txtPCLXLFontFile"
+                                     Width="450"
+                                     Height="20"
+                                     Margin="130,10,0,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     VerticalContentAlignment="Bottom"
+                                     FontFamily="Lucida Console"
+                                     FontSize="12"
+                                     LostFocus="txtPCLXLFontFile_LostFocus" />
+                            <Button Name="btnPCLXLFontFileBrowse"
+                                    Width="60"
+                                    Height="20"
+                                    Margin="600,10,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Click="btnPCLXLFontFileBrowse_Click"
+                                    Content="browse ..."
+                                    Style="{StaticResource SecondaryButton}" />
+
+                            <GroupBox Name="grpPCLXLFontHddr"
+                                      Width="655"
+                                      Height="205"
+                                      Margin="5,30,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      BorderThickness="2"
+                                      Header="Font header:">
+                                <Grid>
+                                    <GroupBox Name="grpPCLXLHddrFSel"
+                                              Width="515"
+                                              Height="130"
+                                              Margin="5,0,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              BorderThickness="2"
+                                              Header="Font selection data:">
+                                        <Grid>
+
+                                            <Label Name="lbPCLXLSymSet"
+                                                   Width="90"
+                                                   Height="25"
+                                                   Margin="0,2,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Symbol Set:" />
+                                            <Label Name="lbPCLXLSymSetNo"
+                                                   Width="42"
+                                                   Height="25"
+                                                   Margin="85,2,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Kind1:" />
+                                            <TextBox Name="txtPCLXLSymSetNo"
+                                                     Width="45"
+                                                     Height="20"
+                                                     Margin="130,5,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Right"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     LostFocus="txtPCLXLSymSetNo_LostFocus"
+                                                     TextChanged="txtPCLXLSymSetNo_TextChanged" />
+
+                                            <Label Name="lbPCLXLSymSetId"
+                                                   Width="20"
+                                                   Height="25"
+                                                   Margin="180,2,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="=" />
+                                            <TextBox Name="txtPCLXLSymSetIdNum"
+                                                     Width="40"
+                                                     Height="20"
+                                                     Margin="205,5,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Right"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+                                            <TextBox Name="txtPCLXLSymSetIdAlpha"
+                                                     Width="20"
+                                                     Height="20"
+                                                     Margin="250,5,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="12"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+                                            <TextBox Name="txtPCLXLSymSetName"
+                                                     Width="195"
+                                                     Height="20"
+                                                     Margin="305,5,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     HorizontalContentAlignment="Left"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Lucida Console"
+                                                     FontSize="10"
+                                                     IsEnabled="False"
+                                                     IsReadOnly="True" />
+
+                                            <Label Name="lbPCLXLFontName"
+                                                   Width="90"
+                                                   Height="25"
+                                                   Margin="0,27,0,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Content="Font name:" />
+                                            <TextBox Name="txtPCLXLFontName"
+                                                     Grid.Column="1"
+                                                     Width="125"
+                                                     Height="20"
+                                                     Margin="130,30,0,0"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Top"
+                                                     VerticalContentAlignment="Bottom"
+                                                     FontFamily="Courier New"
+                                                     FontSize="12"
+                                                     LostFocus="txtPCLXLFontName_LostFocus" />
+
+                                        </Grid>
+                                    </GroupBox>
+
+
+                                    <GroupBox Name="grpPCLXLHddrVMetrics"
+                                              Width="120"
+                                              Height="60"
+                                              Margin="525,125,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              BorderThickness="2"
+                                              Header="Vertical metrics:">
+                                        <Grid>
+                                            <CheckBox Name="chkPCLXLVMetrics"
+                                                      Height="16"
+                                                      Margin="5,10,0,0"
+                                                      HorizontalAlignment="Left"
+                                                      VerticalAlignment="Top"
+                                                      Checked="chkPCLXLVMetrics_Checked"
+                                                      Content="Write metrics"
+                                                      Unchecked="chkPCLXLVMetrics_Unchecked" />
+                                        </Grid>
+                                    </GroupBox>
+
+                                </Grid>
+                            </GroupBox>
+
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="grpLog"
+                  Width="750"
+                  Height="205"
+                  Margin="0,550,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  BorderThickness="5"
+                  Header="Log:">
+            <Grid>
+                <TabControl Name="tabLog"
+                            Width="720"
+                            Height="170"
+                            Margin="0,10,0,0"
+                            VerticalAlignment="Top"
+                            IsEnabled="true"
+                            TabStripPlacement="Left">
+
+                    <TabItem Name="tabLogDonor"
+                             Header="Donor"
+                             IsEnabled="true">
+                        <Grid>
+                            <DataGrid Name="dgLogDonor"
+                                      Width="650"
+                                      Height="155"
+                                      Margin="5,5,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      AutoGenerateColumns="True"
+                                      CanUserReorderColumns="False"
+                                      CanUserSortColumns="False"
+                                      ColumnHeaderHeight="25"
+                                      FontFamily="Courier New"
+                                      FontSize="11"
+                                      GridLinesVisibility="None"
+                                      HorizontalScrollBarVisibility="Auto"
+                                      IsReadOnly="True"
+                                      ItemsSource="{Binding}"
+                                      SelectionUnit="Cell"
+                                      VerticalScrollBarVisibility="Auto" />
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabLogMapping"
+                             Header="Mapping"
+                             IsEnabled="true">
+                        <Grid>
+                            <DataGrid Name="dgLogMapping"
+                                      Width="650"
+                                      Height="155"
+                                      Margin="5,5,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      AutoGenerateColumns="True"
+                                      CanUserReorderColumns="False"
+                                      CanUserSortColumns="False"
+                                      ColumnHeaderHeight="25"
+                                      FontFamily="Courier New"
+                                      FontSize="11"
+                                      GridLinesVisibility="None"
+                                      HorizontalScrollBarVisibility="Auto"
+                                      IsReadOnly="True"
+                                      ItemsSource="{Binding}"
+                                      SelectionUnit="Cell"
+                                      VerticalScrollBarVisibility="Auto" />
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabLogTarget"
+                             Header="Target"
+                             IsEnabled="true">
+                        <Grid>
+                            <DataGrid Name="dgLogTarget"
+                                      Width="650"
+                                      Height="155"
+                                      Margin="5,5,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      AutoGenerateColumns="True"
+                                      CanUserReorderColumns="False"
+                                      CanUserSortColumns="False"
+                                      ColumnHeaderHeight="25"
+                                      FontFamily="Courier New"
+                                      FontSize="11"
+                                      GridLinesVisibility="None"
+                                      HorizontalScrollBarVisibility="Auto"
+                                      IsReadOnly="True"
+                                      ItemsSource="{Binding}"
+                                      SelectionUnit="Cell"
+                                      VerticalScrollBarVisibility="Auto" />
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabLogChars"
+                             Header="Chars"
+                             IsEnabled="true">
+                        <Grid>
+                            <DataGrid Name="dgLogChars"
+                                      Width="650"
+                                      Height="155"
+                                      Margin="5,5,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      AutoGenerateColumns="True"
+                                      ColumnHeaderHeight="25"
+                                      FontFamily="Courier New"
+                                      FontSize="11"
+                                      GridLinesVisibility="None"
+                                      HorizontalScrollBarVisibility="Auto"
+                                      IsReadOnly="True"
+                                      ItemsSource="{Binding}"
+                                      SelectionUnit="Cell"
+                                      VerticalScrollBarVisibility="Auto" />
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
