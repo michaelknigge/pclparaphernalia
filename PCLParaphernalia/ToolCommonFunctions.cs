@@ -193,26 +193,5 @@ namespace PCLParaphernalia
 
             fileName = tmpTname + "." + tmpExt;
         }
-
-        //--------------------------------------------------------------------//
-        //                                                        M e t h o d //
-        // s p l i t P a t h N a m e N o E x t                                //
-        //--------------------------------------------------------------------//
-        //                                                                    //
-        // Return folder and file names from supplied path name, without      //
-        // extension name.                                                    //
-        //                                                                    //
-        //--------------------------------------------------------------------//
-
-        public static void splitPathNameNoExt (String pathName,
-                                               ref String folderName,
-                                               ref String fileName)
-        {
-            String tmpVol = null,
-                   tmpExt = null;
-
-            decomposePathName (pathName, ref tmpVol,
-                               ref folderName, ref fileName, ref tmpExt);
-        }
     }
 }
