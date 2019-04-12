@@ -348,7 +348,7 @@ namespace PCLParaphernalia
         //                                                                    //
         //--------------------------------------------------------------------//
 
-        public void streamOpen(ref String fontFilename,
+        public Boolean streamOpen(ref String fontFilename,
                                Boolean pdlIsPCLXL,
                                ref BinaryWriter binWriter,
                                ref Stream opStream)
@@ -371,15 +371,32 @@ namespace PCLParaphernalia
             if (dialogResult == true)
             {
                 fontFilename = saveDialog.FileName;
+
+                BinaryWriter writer = null;
+                Stream stream = null;
+
+                stream = File.Create(fontFilename);
+
+                if (stream != null)
+                {
+                    writer = new BinaryWriter(stream);
+
+                    if (writer != null)
+                    {
+                        opStream = stream;
+                        _binWriter = writer;
+                        binWriter = writer;
+
+                        return true;
+                    }
+                    else
+                    {
+                        stream.Close();
+                    }
+                }
             }
 
-            opStream = File.Create (fontFilename);
-
-            if (opStream != null)
-            {
-                _binWriter = new BinaryWriter (opStream);
-                binWriter = _binWriter;
-            }
+            return false;
         }
 
         //--------------------------------------------------------------------//

@@ -109,7 +109,7 @@ namespace PCLParaphernalia
 
             try
             {
-                _baseHandler.streamOpen (ref pclFilename,
+                flagOK = _baseHandler.streamOpen (ref pclFilename,
                                          false,
                                          ref _binWriter,
                                          ref _opStream);
