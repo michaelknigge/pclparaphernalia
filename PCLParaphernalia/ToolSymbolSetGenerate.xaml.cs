@@ -2235,37 +2235,17 @@ namespace PCLParaphernalia
 
         private Boolean selectDonorSymSetFile (ref String symSetFilename)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (symSetFilename,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
-            openDialog.CheckFileExists = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(symSetFilename);
 
             openDialog.Filter = "PCL files|*.pcl; *.PCL;" +
                                 "|All files|*.*";
 
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 symSetFilename = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
@@ -2280,42 +2260,18 @@ namespace PCLParaphernalia
 
         private Boolean selectTargetSymSetFile (ref String symSetFilename)
         {
-            Boolean selected;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(symSetFilename);
 
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (symSetFilename,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
             openDialog.CheckFileExists = false;
-
             openDialog.Filter = "PCL files|*.pcl; *.PCL;" +
                                 "|All files|*.*";
 
-            openDialog.InitialDirectory = _targetSymSetFolder;
-            openDialog.CheckFileExists = false;
-
-            openDialog.FileName = _targetSymSetFile;
-
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
-                symSetFilename = fileName;
-            }
-            else
-            {
-                selected = false;
-            }
+                symSetFilename = openDialog.FileName;
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//

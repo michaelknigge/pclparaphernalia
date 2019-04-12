@@ -1854,20 +1854,7 @@ namespace PCLParaphernalia
 
         private Boolean selectPCLFormFile(ref String selectedName)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            ToolCommonFunctions.splitPathName (selectedName,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName         = fileName;
-            openDialog.CheckFileExists  = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(selectedName);
 
             openDialog.Filter = "PCL Overlay files|*.ovl; *.OVL" +
                                 "|All files|*.*";
@@ -1875,16 +1862,9 @@ namespace PCLParaphernalia
             Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 selectedName = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
@@ -1898,37 +1878,17 @@ namespace PCLParaphernalia
 
         private Boolean selectPCLXLFormFile (ref String selectedName)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (selectedName,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
-            openDialog.CheckFileExists = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(selectedName);
 
             openDialog.Filter = "PCLXL Overlay files|*.ovx; *.OVX" +
                                 "|All files|*.*";
 
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 selectedName = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//

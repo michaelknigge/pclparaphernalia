@@ -3577,38 +3577,18 @@ namespace PCLParaphernalia
 
         private Boolean selectPCLFontFile (ref String fontFilename)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName   = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            ToolCommonFunctions.splitPathName (fontFilename,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName         = fileName;
-            openDialog.CheckFileExists  = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(fontFilename);
 
             openDialog.Filter = "PCL Font files|*.sfp; *.sfs; *.sft; " +
-                                               "*.SFP; *.SFS; *.SFT;"  +
+                                               "*.SFP; *.SFS; *.SFT;" +
                                 "|All files|*.*";
 
             Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 fontFilename = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
@@ -3622,37 +3602,17 @@ namespace PCLParaphernalia
 
         private Boolean selectPCLXLFontFile (ref String fontFilename)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (fontFilename,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
-            openDialog.CheckFileExists = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(fontFilename);
 
             openDialog.Filter = "PCLXL Font files|*.sfx; *.SFX" +
                                 "|All files|*.*";
 
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 fontFilename = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
@@ -3666,37 +3626,17 @@ namespace PCLParaphernalia
 
         private Boolean selectSymSetFile (ref String symSetFile)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName   = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (symSetFile,
-                                               ref folderName,  
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName         = fileName;
-            openDialog.CheckFileExists  = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(symSetFile);
 
             openDialog.Filter = "PCL files|*.pcl; *.PCL;" +
                                 "|All files|*.*";
 
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 symSetFile = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//

@@ -353,19 +353,7 @@ namespace PCLParaphernalia
                                ref BinaryWriter binWriter,
                                ref Stream opStream)
         {
-            String folderName = null;
-            String fileName = null;
-
-            SaveFileDialog saveDialog = new SaveFileDialog ();
-
-            ToolCommonFunctions.splitPathName (fontFilename,
-                                               ref folderName,
-                                               ref fileName);
-
-            saveDialog.InitialDirectory = folderName;
-            saveDialog.FileName = fileName;
-            saveDialog.CheckFileExists = false;
-            saveDialog.OverwritePrompt = true;
+            SaveFileDialog saveDialog = ToolCommonFunctions.createSaveFileDialog(fontFilename);
 
             if (pdlIsPCLXL)
             {

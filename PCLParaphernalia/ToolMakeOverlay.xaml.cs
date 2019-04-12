@@ -763,37 +763,18 @@ namespace PCLParaphernalia
 
         private Boolean selectOvlFilePCL (ref String selectedName)
         {
-            Boolean selected;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(selectedName);
 
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            ToolCommonFunctions.splitPathName (selectedName,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
             openDialog.CheckFileExists = false;
-
             openDialog.Filter = "Overlay Files|*.ovl; *.OVL" +
                                 "|All files|*.*";
 
             Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 selectedName = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
- 
-            return selected;
+
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
@@ -807,37 +788,19 @@ namespace PCLParaphernalia
 
         private Boolean selectOvlFilePCLXL(ref String selectedName)
         {
-            Boolean selected;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(selectedName);
 
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (selectedName,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
             openDialog.CheckFileExists = false;
-
             openDialog.Filter = "Overlay Files|*.ovx; *.OVX" +
                                 "|All files|*.*";
 
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 selectedName = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
@@ -851,37 +814,18 @@ namespace PCLParaphernalia
 
         private Boolean selectPrnFile (ref String selectedName)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (selectedName,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
-            openDialog.CheckFileExists = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(selectedName);
 
             openDialog.Filter = "Print Files|*.prn; *.PRN" +
                                 "|All files|*.*";
 
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 selectedName = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//

@@ -235,38 +235,14 @@ namespace PCLParaphernalia
 
         private Boolean selectTargetFile (ref String targetFile)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            SaveFileDialog saveDialog = new SaveFileDialog ();
-
-            ToolCommonFunctions.splitPathName (targetFile,
-                                               ref folderName,
-                                               ref fileName);
-
-            saveDialog.InitialDirectory = folderName;
-            saveDialog.FileName = fileName;
-            saveDialog.CheckFileExists = false;
-            saveDialog.OverwritePrompt = true;
-
-            saveDialog.Filter = "Print Files | *.prn; *.PRN";
-            saveDialog.DefaultExt = "prn";
+            SaveFileDialog saveDialog = ToolCommonFunctions.createSaveFileDialog(targetFile);
 
             Nullable<Boolean> dialogResult = saveDialog.ShowDialog ();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 targetFile = saveDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//

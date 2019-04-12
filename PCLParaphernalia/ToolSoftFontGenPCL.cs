@@ -113,9 +113,7 @@ namespace PCLParaphernalia
                                          false,
                                          ref _binWriter,
                                          ref _opStream);
-
             }
-
             catch (Exception exc)
             {
                 flagOK = false;

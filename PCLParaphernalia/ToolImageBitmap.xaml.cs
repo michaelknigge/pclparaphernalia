@@ -775,35 +775,16 @@ namespace PCLParaphernalia
 
         private Boolean selectImageFile(ref String selectedName)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            ToolCommonFunctions.splitPathName (selectedName,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
-            openDialog.CheckFileExists = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(selectedName);
 
             openDialog.Filter = "Bitmap Files|*.bmp; *.BMP";
+
             Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 selectedName = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//

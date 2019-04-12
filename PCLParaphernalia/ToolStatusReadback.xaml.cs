@@ -1121,20 +1121,7 @@ namespace PCLParaphernalia
 
         private Boolean selectLocBinSrcFile (ref String locBinFilename)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            ToolCommonFunctions.splitPathName(locBinFilename,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
-            openDialog.CheckFileExists = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(locBinFilename);
 
             openDialog.Filter = "Print Files|" +
                                 "*.prn; *.pcl; *.dia;" +
@@ -1151,16 +1138,9 @@ namespace PCLParaphernalia
             Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 locBinFilename = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
@@ -1175,24 +1155,7 @@ namespace PCLParaphernalia
 
         private Boolean selectLocBinTgtFile(ref String locBinFilename)
         {
-            Boolean selected = false;
-
-            String saveFolder = null;
-            String saveFile = null;
-
-            SaveFileDialog saveDialog;
-
-            //----------------------------------------------------------------//
-            //                                                                //
-            // Invoke 'Save As' dialogue.                                     //
-            //                                                                //
-            //----------------------------------------------------------------//
-
-            ToolCommonFunctions.splitPathName (locBinFilename,
-                                               ref saveFolder,
-                                               ref saveFile);
-
-            saveDialog = new SaveFileDialog();
+            SaveFileDialog saveDialog = ToolCommonFunctions.createSaveFileDialog(locBinFilename);
 
             saveDialog.Filter = "Print Files|" +
                                 "*.prn; *.pcl; *.dia;" +
@@ -1207,20 +1170,13 @@ namespace PCLParaphernalia
                                 "*.*";
 
             saveDialog.DefaultExt = "pcl";
-            saveDialog.InitialDirectory = saveFolder;
-            saveDialog.OverwritePrompt = true;
-            saveDialog.FileName = saveFile;
 
             Nullable<Boolean> dialogResult = saveDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
                 locBinFilename = saveDialog.FileName;
 
-                selected = true;
-            }
-
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//

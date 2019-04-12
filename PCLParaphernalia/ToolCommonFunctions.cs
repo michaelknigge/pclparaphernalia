@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using Microsoft.Win32;
 
 namespace PCLParaphernalia
 {
@@ -12,6 +14,63 @@ namespace PCLParaphernalia
 
     public static class ToolCommonFunctions
     {
+        //--------------------------------------------------------------------//
+        //                                                        M e t h o d //
+        // c r e a t e O p e n F i l e D i a l o g                            //
+        //--------------------------------------------------------------------//
+        //                                                                    //
+        // Creates a OpenFileDialog.                                          //
+        //                                                                    //
+        //--------------------------------------------------------------------//
+        public static OpenFileDialog createOpenFileDialog(String initialPath)
+        {
+            String folderName = null;
+            String fileName = null;
+
+            ToolCommonFunctions.splitPathName(initialPath,
+                                               ref folderName,
+                                               ref fileName);
+            
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.InitialDirectory = Directory.Exists(folderName) ? folderName : Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            openDialog.FileName = fileName;
+            openDialog.CheckFileExists = true;
+            openDialog.Filter = "All files|*.*";
+
+            return openDialog;
+        }
+
+        //--------------------------------------------------------------------//
+        //                                                        M e t h o d //
+        // c r e a t e S a v e F i l e D i a l o g                            //
+        //--------------------------------------------------------------------//
+        //                                                                    //
+        // Creates a SaveFileDialog.                                          //
+        //                                                                    //
+        //--------------------------------------------------------------------//
+        public static SaveFileDialog createSaveFileDialog(String initialPath)
+        {
+            String folderName = null;
+            String fileName = null;
+
+            ToolCommonFunctions.splitPathName(initialPath,
+                                               ref folderName,
+                                               ref fileName);
+
+            SaveFileDialog saveDialog = new SaveFileDialog();
+
+            saveDialog.InitialDirectory = Directory.Exists(folderName) ? folderName : Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            saveDialog.FileName = fileName;
+            saveDialog.Filter = "Print Files | *.prn; *.PRN";
+            saveDialog.DefaultExt = "prn";
+            saveDialog.RestoreDirectory = true;
+            saveDialog.OverwritePrompt = true;
+            saveDialog.CheckFileExists = false;
+            saveDialog.CheckPathExists = true;
+
+            return saveDialog;
+        }
+
         //--------------------------------------------------------------------//
         //                                                        M e t h o d //
         // d e c o m p o s e P a t h N a m e                                  //
@@ -157,7 +216,7 @@ namespace PCLParaphernalia
         //                                                                    //
         //--------------------------------------------------------------------//
 
-        public static void splitPathName (String     pathName,
+        private static void splitPathName (String    pathName,
                                           ref String folderName,
                                           ref String fileName)
         {

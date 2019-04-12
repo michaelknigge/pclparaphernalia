@@ -855,54 +855,26 @@ namespace PCLParaphernalia
                                        ref Object stream,
                                        ref Object writer)
         {
-            Boolean fileOpen = false;
-
-            String saveFolder = null;
-            String saveFile = null;
-
-            String filter;
-            String defExt;
-
-            SaveFileDialog saveDialog;
-
-            //----------------------------------------------------------------//
+            SaveFileDialog saveDialog = ToolCommonFunctions.createSaveFileDialog(saveFilename);
 
             if (rptFileFmt == eRptFileFmt.html)
             {
-                filter = "Html Files | *.html";
-                defExt = "html";
+                saveDialog.Filter = "Html Files | *.html";
+                saveDialog.DefaultExt = "html";
             }
             else if (rptFileFmt == eRptFileFmt.xml)
             {
-                filter = "Xml Files | *.xml";
-                defExt = "xml";
+                saveDialog.Filter = "Xml Files | *.xml";
+                saveDialog.DefaultExt = "xml";
             }
             else
             {
-                filter = "Text Files | *.txt";
-                defExt = "txt";
+                saveDialog.Filter = "Text Files | *.txt";
+                saveDialog.DefaultExt = "txt";
             }
 
-            //----------------------------------------------------------------//
-            //                                                                //
-            // Invoke 'Save As' dialogue.                                     //
-            //                                                                //
-            //----------------------------------------------------------------//
-
-            ToolCommonFunctions.splitPathName (saveFilename,
-                                               ref saveFolder,
-                                               ref saveFile);
-
-            saveDialog = new SaveFileDialog ();
-
-            saveDialog.Filter = filter;
-            saveDialog.DefaultExt = defExt;
-            saveDialog.RestoreDirectory = true;
-            saveDialog.InitialDirectory = saveFolder;
-            saveDialog.OverwritePrompt = true;
-            saveDialog.FileName = saveFile;
-
             Nullable<Boolean> dialogResult = saveDialog.ShowDialog ();
+            Boolean fileOpen = false;
 
             if (dialogResult == true)
             {

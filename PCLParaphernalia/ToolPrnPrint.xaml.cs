@@ -341,39 +341,20 @@ namespace PCLParaphernalia
 
         private Boolean selectPrnFile (ref String prnFilename)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            ToolCommonFunctions.splitPathName (prnFilename,
-                                               ref folderName,
-                                               ref fileName);
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName         = fileName;
-            openDialog.CheckFileExists  = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(prnFilename);
 
             openDialog.Filter = "Print Files|" +
                                 "*.prn; *.pcl; *.dia;" +
                                 "*.PRN; *.PCL; *.DIA" +
-                                "|All files|"  +
+                                "|All files|" +
                                 "*.*";
 
             Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 prnFilename = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//

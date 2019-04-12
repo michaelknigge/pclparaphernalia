@@ -2378,36 +2378,17 @@ namespace PCLParaphernalia
 
         private Boolean selectPCLFontFile (ref String fontFilename)
         {
-            Boolean selected;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(fontFilename);
 
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (fontFilename,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
             openDialog.CheckFileExists = false;
-
             openDialog.Filter = "PCLETTO font files|*.sft; *.SFT";
-            
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 fontFilename = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
@@ -2421,36 +2402,17 @@ namespace PCLParaphernalia
 
         private Boolean selectPCLXLFontFile (ref String fontFilename)
         {
-            Boolean selected;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(fontFilename);
 
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (fontFilename,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
             openDialog.CheckFileExists = false;
-
             openDialog.Filter = "PCLXLETTO font files|*.sfx; *.SFX";
 
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 fontFilename = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
 
@@ -2465,37 +2427,17 @@ namespace PCLParaphernalia
 
         private Boolean selectSymSetFile (ref String symSetFile)
         {
-            Boolean selected;
-
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog ();
-
-            ToolCommonFunctions.splitPathName (symSetFile,
-                                               ref folderName,
-                                               ref fileName);
-            
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
-            openDialog.CheckFileExists = true;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(symSetFile);
 
             openDialog.Filter = "PCL files|*.pcl; *.PCL;" +
                                 "|All files|*.*";
 
-            Nullable<Boolean> dialogResult = openDialog.ShowDialog ();
+            Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 symSetFile = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
 
-            return selected;
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
@@ -2509,21 +2451,9 @@ namespace PCLParaphernalia
 
         private Boolean selectTTFFontFile(ref String fontFilenameTTF)
         {
-            Boolean selected;
+            OpenFileDialog openDialog = ToolCommonFunctions.createOpenFileDialog(fontFilenameTTF);
 
-            String folderName = null;
-            String fileName = null;
-
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            ToolCommonFunctions.splitPathName (fontFilenameTTF,
-                                               ref folderName,
-                                               ref fileName);
-
-            openDialog.InitialDirectory = folderName;
-            openDialog.FileName = fileName;
-            openDialog.CheckFileExists = true;
-
+            openDialog.CheckFileExists = false;
             openDialog.Filter = "TrueType font files|" +
                                 "*.ttf; *.otf; *.ttc" +
                                 "*.TTF; *.OTF; *.TTC";
@@ -2531,16 +2461,9 @@ namespace PCLParaphernalia
             Nullable<Boolean> dialogResult = openDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                selected = true;
                 fontFilenameTTF = openDialog.FileName;
-            }
-            else
-            {
-                selected = false;
-            }
- 
-            return selected;
+
+            return dialogResult == true;
         }
 
         //--------------------------------------------------------------------//
