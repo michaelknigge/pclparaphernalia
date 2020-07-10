@@ -5076,7 +5076,7 @@ namespace PCLParaphernalia
                         ToolSoftFontGenLog.logNameAndValue (
                             _tableDonor, false, false,
                             "",
-                            "***** font conversion not allowed *****");
+                            "***** font conversion requires permission of legal owner *****");
                     }
                     else if (licenceType == eLicenceType.OwnerOnly)
                     {

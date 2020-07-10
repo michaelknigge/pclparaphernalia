@@ -313,15 +313,21 @@ namespace PCLParaphernalia
 
             if (licenceType == ToolSoftFontGenTTF.eLicenceType.NotAllowed)
             {
-                proceed = false;
+                MessageBoxResult msgBoxResult = 
+                        MessageBox.Show (
+                        "Donor TrueType font has a restrictive license:\n\n" +
+                        licenceText +  
+                        "\n\nConversion will proceed only if you confirm " +
+                        "that you are allowed to convert the font;" +
+                        "\n\nDid you obtained permission from the legal owner?",
+                        "Donor font licensing rights",
+                         MessageBoxButton.YesNo,
+                         MessageBoxImage.Warning);
 
-                MessageBox.Show (
-                    "Donor TrueType font has a restrictive license:\n\n" +
-                    licenceText +  
-                    "\n\nConversion will not proceed",
-                    "Donor font licensing rights",
-                     MessageBoxButton.OK,
-                     MessageBoxImage.Error);
+                if (msgBoxResult == MessageBoxResult.Yes)
+                    proceed = true;
+                else
+                    proceed = false;
             }
             else if (licenceType == ToolSoftFontGenTTF.eLicenceType.OwnerOnly)
             {
