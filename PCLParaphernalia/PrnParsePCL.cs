@@ -1086,7 +1086,7 @@ namespace PCLParaphernalia
                             continuation = true;
 
                             _linkData.setBacktrack(
-                                PrnParseConstants.eContType.None,
+                                PrnParseConstants.eContType.PCLMultiByteData,
                                 -bufRem);
                         }
                         else
