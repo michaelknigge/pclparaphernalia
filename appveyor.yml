@@ -1,7 +1,7 @@
 version: 3.2.5.{build}
 branches:
   only:
-  - enhanced
+  - master
 image: Visual Studio 2017
 init:
 - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
