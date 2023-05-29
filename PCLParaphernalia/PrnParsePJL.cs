@@ -21,7 +21,7 @@ namespace PCLParaphernalia
         //--------------------------------------------------------------------//
 
         private const Int32 _lenPJLIntro   = 4;       // @PJL //
-        private const Int32 _maxPJLCmdLen  = 256;
+        private const Int32 _maxPJLCmdLen  = 1024;
         private const Int32 _maxPJLLineLen = 50;
 
         //--------------------------------------------------------------------//
